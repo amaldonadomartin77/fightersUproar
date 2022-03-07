@@ -22,7 +22,13 @@ public class SelectorManager : MonoBehaviour
     public GameObject BK2;
     public GameObject BK3;
     public GameObject BK4;
-    string[] characterNameList = { "Ace", "Bella", "Issac", "Katsu" };
+
+    public AudioSource audioSource;
+    public AudioClip cursorSound;
+    public AudioClip backSound;
+    public AudioClip confirmSound;
+
+    string[] characterNameList = { "Ace", "Bella", "Isaac", "Katsu" };
 
     string[,] characterSkillList = { { "Skill 1 descrption will be here: ----", "Skill 2 descrption will be here:------------------", "Skill 2 descrption will be here:-------------------" }, { "Skill 1 descrption will be here:-----------------", "Skill 2 descrption will be here", "Skill 3 descrption will be here" }, 
                                         { "Skill 1 descrption will be here", "Skill 2 descrption will be here", "CCA" }, { "AACC", "BBAA", "CCAA" } };
@@ -86,6 +92,7 @@ public class SelectorManager : MonoBehaviour
         // float y = Input.GetAxisRaw( "Vertical" );
         if (x != 0 && !isMoving)
         {
+            audioSource.PlayOneShot(cursorSound);
             MoveSelector(x, 0);
         }
 
@@ -96,7 +103,7 @@ public class SelectorManager : MonoBehaviour
 
             // string levelID = currentSlot.GetComponet<LevelSelectItemScript>().levelID;
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StartCoroutine(LoadGameplay(1f));
 
         }
 
@@ -190,17 +197,26 @@ public class SelectorManager : MonoBehaviour
     }
     public void ClickSelectBtn()
     {
-        // Application.LoadLevel(sceneName);
-        // Debug.Log ("to: "+sceneName);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadGameplay(1f));
     }
 
     public void ClickBackBtn()
     {
-        // Application.LoadLevel(sceneName);
-        Debug.Log ("Back to the last scene");
+        StartCoroutine(LoadCharSelect(1f));
+    }
+
+    private IEnumerator LoadCharSelect(float time)
+    {
+        audioSource.PlayOneShot(backSound);
+        yield return new WaitForSeconds(time);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
+    private IEnumerator LoadGameplay(float time)
+    {
+        audioSource.PlayOneShot(confirmSound);
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
 
