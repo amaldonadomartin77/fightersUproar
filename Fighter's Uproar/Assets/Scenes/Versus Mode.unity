@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  jumpForce: 5.5
+  jumpForce: 10
   isGrounded: 1
   player: {fileID: 1839732891}
   target: {fileID: 1196617843}
