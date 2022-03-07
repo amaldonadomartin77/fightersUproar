@@ -48,6 +48,8 @@ public class Fighter2D_Movement : MonoBehaviour
     private float timeBetweenSpecialPunch;
     public float startTimeBetweenSpecialPunch;
 
+    public AudioSource audioSource;
+    public AudioClip footstepSound, punchSound, kickSound, specialHitSound;
 
     void Start()
     {
@@ -143,6 +145,7 @@ public class Fighter2D_Movement : MonoBehaviour
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<Fighter2D_2_Movement>().TakeDamage(punchDamage);
+                    StartCoroutine(playPunchSound());
                 }
                 timeBetweenPunch = startTimeBetweenPunch;
             }
@@ -164,6 +167,7 @@ public class Fighter2D_Movement : MonoBehaviour
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<Fighter2D_2_Movement>().TakeDamage(kickDamage);
+                    StartCoroutine(playKickSound());
                 }
                 timeBetweenKick = startTimeBetweenKick;
             }
@@ -188,6 +192,7 @@ public class Fighter2D_Movement : MonoBehaviour
                         for (int i = 0; i < enemiesToDamage.Length; i++)
                         {
                             enemiesToDamage[i].GetComponent<Fighter2D_2_Movement>().TakeDamage(specialPunchDamage);
+                        StartCoroutine(playSpecialHitSound());
                         }
                     }
                     else
@@ -243,5 +248,23 @@ public class Fighter2D_Movement : MonoBehaviour
             Debug.Log("Exited Ground");
             isGrounded = false;
         }
+    }
+
+    IEnumerator playPunchSound()
+    {
+        yield return new WaitForSeconds(0.2f);
+        audioSource.PlayOneShot(punchSound);
+    }
+
+    IEnumerator playKickSound()
+    {
+        yield return new WaitForSeconds(0.2f);
+        audioSource.PlayOneShot(kickSound);
+    }
+
+    IEnumerator playSpecialHitSound()
+    {
+        yield return new WaitForSeconds(0.2f);
+        audioSource.PlayOneShot(specialHitSound);
     }
 }
