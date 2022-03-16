@@ -6,11 +6,13 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject titleMenu;
     GameObject menuHeader, background, fightButton, charButton, optionButton, quitButton, aceRender, bellaRender, isaacRender, katsuRender;
 
     // Start is called before the first frame update
     void Start()
     {
+        titleMenu.SetActive(false);
         menuHeader = GameObject.Find("MenuHeader");
         background = GameObject.Find("MenuBackground");
         fightButton = GameObject.Find("FightButton");

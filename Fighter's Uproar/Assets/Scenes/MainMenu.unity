@@ -813,6 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec2996a0bfbc804790698f0f5b80b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleMenu: {fileID: 1470826327}
 --- !u!114 &487166362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2724,7 +2725,7 @@ GameObject:
   - component: {fileID: 2092988998}
   - component: {fileID: 2092988997}
   m_Layer: 5
-  m_Name: Subtitle - Alpha
+  m_Name: Subtitle - Beta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2769,7 +2770,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alpha Build
+  m_text: Beta Version
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb2767184bad6a6448d9c32f44d6521b, type: 2}
   m_sharedMaterial: {fileID: 5715832865440598768, guid: bb2767184bad6a6448d9c32f44d6521b, type: 2}

@@ -11,6 +11,8 @@ public class TitleMenu : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip soundClip;
 
+    private bool pressed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +22,12 @@ public class TitleMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !pressed)
         {
             audioSource.PlayOneShot(soundClip);
             StartCoroutine(FadeOutText(1f, pressStart));
             StartCoroutine(FadeOutLogo(0.8f, titleName, subTitle));
+            pressed = true;
         }
     }
 
