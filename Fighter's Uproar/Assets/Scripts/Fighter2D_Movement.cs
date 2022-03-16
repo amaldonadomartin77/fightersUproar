@@ -20,10 +20,6 @@ public class Fighter2D_Movement : MonoBehaviour
     public GameObject player, target;
 
     //Combat Variables
-    public HealthBar healthBar;
-    public HealthBar meter;
-    public int fighterHealth = 10;
-    public int fighterMeter = 10;
     public LayerMask enemyFighter;
     public Animator playerAnim;
 
@@ -51,11 +47,14 @@ public class Fighter2D_Movement : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip footstepSound, punchSound, kickSound, specialHitSound;
 
+    private HealthSystem healthSystem;
+    private MeterSystem meterSystem;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        healthBar.setMaxHealth(fighterHealth);
-        meter.setMaxHealth(fighterMeter);
+        healthSystem = transform.GetComponent<HealthSystem>();
+        meterSystem = transform.GetComponent<MeterSystem>();
     }
 
     // Update is called once per frame
@@ -68,8 +67,6 @@ public class Fighter2D_Movement : MonoBehaviour
         SpecialPunch();
         Punch();
         Kick();
-        healthBar.setHealth(fighterHealth);
-        meter.setHealth(fighterMeter);
         Die();
     }
 
@@ -184,10 +181,10 @@ public class Fighter2D_Movement : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.T) && Input.GetKeyDown(KeyCode.E) && isGrounded)
                 {
-                    if(fighterMeter > 0)
+                    if(meterSystem.GetMeterNormalized() >= 0.20f)
                     {
                         GetComponent<Animator>().SetTrigger("specialPunch");
-                        fighterMeter = fighterMeter - 2;
+                        meterSystem.Spend(20);
                         Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(specialPunchPos.position, new Vector2(specialPunchRangeX, specialPunchRangeY), 0, enemyFighter);
                         for (int i = 0; i < enemiesToDamage.Length; i++)
                         {
@@ -220,15 +217,14 @@ public class Fighter2D_Movement : MonoBehaviour
     public void TakeDamage(int damage)
     {
         GetComponent<Animator>().SetTrigger("Hit");
-        fighterHealth = fighterHealth - damage;
+        healthSystem.Damage(damage);
     }
 
     public void Die()
     {
-        if(fighterHealth <= 0)
+        if(healthSystem.GetHealthNormalized() == 0.0f)
         {
             GetComponent<Animator>().SetTrigger("Die");
-            Destroy(gameObject);
         }
     }
 
