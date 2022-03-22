@@ -33,4 +33,9 @@ public class MeterGauge : MonoBehaviour
     {
         gaugeImage.fillAmount = meterNormalized;
     }
+
+    public void ResetGauge()
+    {
+        gaugeImage.fillAmount = 1.0f;
+    }
 }

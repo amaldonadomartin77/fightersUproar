@@ -14,8 +14,7 @@ public class HealthSystem : MonoBehaviour
 
     public void Start()
     {
-        healthAmountMax = baseHealth;
-        healthAmount = baseHealth;
+        ResetHealth();
     }
 
     public void Damage(int amount)
@@ -29,5 +28,16 @@ public class HealthSystem : MonoBehaviour
     public float GetHealthNormalized()
     {
         return (float)healthAmount / healthAmountMax;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return healthAmount;
+    }
+
+    public void ResetHealth()
+    {
+        healthAmountMax = baseHealth;
+        healthAmount = baseHealth;
     }
 }
