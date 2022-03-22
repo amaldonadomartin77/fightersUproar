@@ -384,7 +384,6 @@ MonoBehaviour:
   imagePerfect: {fileID: 21300000, guid: c42ca6868c4ec2d4f943010667e4cd65, type: 3}
   imageSpecial: {fileID: 21300000, guid: 31f88aadf7d7ec84f8036e5389adedcd, type: 3}
   imageChip: {fileID: 21300000, guid: 5aea7727170cb5642a2036b8b48a7434, type: 3}
-  gameController: {fileID: 666488075}
   roundsWon: 0
 --- !u!1 &272890875
 GameObject:
@@ -442,7 +441,6 @@ MonoBehaviour:
   imagePerfect: {fileID: 21300000, guid: c42ca6868c4ec2d4f943010667e4cd65, type: 3}
   imageSpecial: {fileID: 21300000, guid: 31f88aadf7d7ec84f8036e5389adedcd, type: 3}
   imageChip: {fileID: 21300000, guid: 5aea7727170cb5642a2036b8b48a7434, type: 3}
-  gameController: {fileID: 666488075}
   roundsWon: 0
 --- !u!1 &275537538
 GameObject:
@@ -1092,7 +1090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeRemaining: {fileID: 478234469}
-  timeValue: 99
+  gameController: {fileID: 0}
 --- !u!114 &478234469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,6 +1374,7 @@ MonoBehaviour:
   playerOne: {fileID: 1196617843}
   playerTwo: {fileID: 1839732891}
   maxWins: 2
+  maxTime: 10
 --- !u!4 &666488076
 Transform:
   m_ObjectHideFlags: 0

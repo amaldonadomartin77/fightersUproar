@@ -7,11 +7,11 @@ public class PlayerRounds : MonoBehaviour
 {
 
     public Sprite imageNone, imageVictory, imagePerfect, imageSpecial, imageChip;
-    public GameController gameController;
     public int roundsWon;
 
 
     private GameObject roundOne, roundTwo, roundThree;
+    private GameController gameController;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,6 +23,7 @@ public class PlayerRounds : MonoBehaviour
     }
     private void Start()
     {
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
         if (gameController.maxWins > 1)
         {
             roundOne.transform.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);

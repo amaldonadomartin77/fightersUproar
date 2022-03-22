@@ -7,9 +7,10 @@ public class GameController : MonoBehaviour {
 
     // Take in game objects
 	public GameObject playerOne, playerTwo;
-    public int maxWins;
+    public int maxWins, maxTime;
 
     private GameObject p1UI, p2UI;
+    private Timer timer;
     private Vector3 initialP1Pos, initialP2Pos;
     private int p1WinCount, p2WinCount, currentRound;
 
@@ -21,20 +22,25 @@ public class GameController : MonoBehaviour {
         p2UI = GameObject.Find("/Canvas/P2UI");
         p1WinCount = 0;
         p2WinCount = 0;
+        timer = GameObject.Find("TimeRemaining").GetComponent<Timer>();
     }
 
     // Update is called once per frame
     void Update() {
         if (CheckForKO(playerTwo))
-        {
-            Debug.Log("Player 1 wins!");
             PlayerOneWins();
-        }
 
         if (CheckForKO(playerOne))
-        {
-            Debug.Log("Player 2 wins!");
             PlayerTwoWins();
+
+        if (timer.GetTime() == 0)
+        {
+            if (playerOne.GetComponent<HealthSystem>().GetHealthNormalized() > playerTwo.GetComponent<HealthSystem>().GetHealthNormalized())
+                PlayerOneWins();
+            else if (playerOne.GetComponent<HealthSystem>().GetHealthNormalized() < playerTwo.GetComponent<HealthSystem>().GetHealthNormalized())
+                PlayerTwoWins();
+            else
+                ResetRound();
         }
 
         if (Input.GetKey("escape"))
@@ -89,5 +95,7 @@ public class GameController : MonoBehaviour {
         p1UI.transform.Find("SpecialGauge").gameObject.GetComponent<MeterGauge>().ResetGauge();
         p2UI.transform.Find("HealthGauge").gameObject.GetComponent<HealthGauge>().ResetGauge();
         p2UI.transform.Find("SpecialGauge").gameObject.GetComponent<MeterGauge>().ResetGauge();
+
+        timer.ResetTimer();
     }
 }

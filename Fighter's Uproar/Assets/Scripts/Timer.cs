@@ -6,7 +6,15 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public Text timeRemaining;
-    public float timeValue = 99;
+    public GameController gameController;
+    
+    private float timeValue;
+
+    private void Start()
+    {
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        timeValue = gameController.maxTime;
+    }
 
     void Update()
     {
@@ -30,5 +38,15 @@ public class Timer : MonoBehaviour
         }
         float seconds = Mathf.FloorToInt(timeValue);
         timeRemaining.text = seconds.ToString();
+    }
+
+    public float GetTime()
+    {
+        return timeValue;
+    }
+
+    public void ResetTimer()
+    {
+        timeValue = gameController.maxTime;
     }
 }
