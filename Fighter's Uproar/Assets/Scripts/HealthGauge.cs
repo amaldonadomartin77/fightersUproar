@@ -53,4 +53,10 @@ public class HealthGauge : MonoBehaviour
     {
         gaugeImage.fillAmount = healthNormalized;
     }
+
+    public void ResetGauge()
+    {
+        gaugeImage.fillAmount = 1.0f;
+        damageGaugeImage.fillAmount = 1.0f;
+    }
 }

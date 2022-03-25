@@ -12,8 +12,7 @@ public class MeterSystem : MonoBehaviour
 
     public void Start()
     {
-        meterAmountMax = baseMeter;
-        meterAmount = baseMeter;
+        ResetMeter();
         InvokeRepeating("Regen", 0.0f, meterRegenRate);
     }
 
@@ -33,5 +32,16 @@ public class MeterSystem : MonoBehaviour
     public float GetMeterNormalized()
     {
         return (float)meterAmount / meterAmountMax;
+    }
+
+    public float GetCurrentMeter()
+    {
+        return meterAmount;
+    }
+
+    public void ResetMeter()
+    {
+        meterAmountMax = baseMeter;
+        meterAmount = baseMeter;
     }
 }
