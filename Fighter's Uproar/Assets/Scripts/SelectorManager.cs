@@ -16,6 +16,12 @@ public class SelectorManager : MonoBehaviour
     public Text playerSkill2Text;
     public Text playerSkill3Text;
     public Button selectBtn;
+    public Text playerTitleName;
+
+    public static int user1;
+    public static int user2;
+    int userid;
+    bool isOne;
 
 
     public GameObject BK1;
@@ -51,6 +57,11 @@ public class SelectorManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        user1 = 0;
+        user2 = 0;
+        userid = 0;
+        isOne = true;
+
         cols = row1.Length;         //4
         // print("cols: " + cols);
         grid = new GameObject[rows, cols];          // 4,1
@@ -80,6 +91,8 @@ public class SelectorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("userid: "+userid);
+
         playerNameText.text = characterNameList[(int)positionIndex.x];
         playerSkill1Text.text = characterSkillList[(int)positionIndex.x, 0];
         playerSkill2Text.text = characterSkillList[(int)positionIndex.x, 1];
@@ -103,7 +116,15 @@ public class SelectorManager : MonoBehaviour
 
             // string levelID = currentSlot.GetComponet<LevelSelectItemScript>().levelID;
 
-            StartCoroutine(LoadGameplay(1f));
+            if(isOne == true){
+                user1 = userid;
+                isOne = false;
+                playerTitleName.text = "Player 2";
+            }
+            else{
+                user2 = userid;
+                StartCoroutine(LoadGameplay(1f));
+            }
 
         }
 
@@ -126,6 +147,7 @@ public class SelectorManager : MonoBehaviour
                 if (positionIndex.x < cols - 1)
                 {
                     positionIndex.x += 1;
+                    userid +=1;
                     // print("pp: "+positionIndex.x);
                 }
 
@@ -137,6 +159,7 @@ public class SelectorManager : MonoBehaviour
                 {
 
                     positionIndex.x -= 1;
+                    userid -=1;
                     //  print("pp: "+positionIndex.x);
                 }
             }
@@ -197,7 +220,15 @@ public class SelectorManager : MonoBehaviour
     }
     public void ClickSelectBtn()
     {
-        StartCoroutine(LoadGameplay(1f));
+        if(isOne == true){
+            user1 = userid;
+            isOne = false;
+            playerTitleName.text = "Player 2";
+        }
+        else{
+            user2 = userid;
+            StartCoroutine(LoadGameplay(1f));
+        }
     }
 
     public void ClickBackBtn()

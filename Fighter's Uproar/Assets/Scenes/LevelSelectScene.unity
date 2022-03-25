@@ -1843,6 +1843,7 @@ MonoBehaviour:
   playerSkill2Text: {fileID: 690782247}
   playerSkill3Text: {fileID: 682237411}
   selectBtn: {fileID: 351577560}
+  playerTitleName: {fileID: 1777372750}
   BK1: {fileID: 1087349526}
   BK2: {fileID: 812311133}
   BK3: {fileID: 127149936}
