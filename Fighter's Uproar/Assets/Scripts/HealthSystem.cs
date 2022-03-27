@@ -9,7 +9,7 @@ public class HealthSystem : MonoBehaviour
 
     public int baseHealth;
 
-    private int healthAmount;
+    private float healthAmount;
     private int healthAmountMax;
 
     public void Start()
@@ -30,7 +30,7 @@ public class HealthSystem : MonoBehaviour
         return (float)healthAmount / healthAmountMax;
     }
 
-    public int GetCurrentHealth()
+    public float GetCurrentHealth()
     {
         return healthAmount;
     }
@@ -39,5 +39,10 @@ public class HealthSystem : MonoBehaviour
     {
         healthAmountMax = baseHealth;
         healthAmount = baseHealth;
+    }
+
+    public void SetHealth(float health)
+    {
+        healthAmount = health;
     }
 }
