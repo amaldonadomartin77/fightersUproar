@@ -291,10 +291,10 @@ public class GameController : MonoBehaviour {
             yield return new WaitForSeconds(1.5f);
         }
 
-        while (winnerText.color.a > 0.0f)
+        while (winnerText.color.a > 0.0f && perfectText.color.a > 0.0f)
         {
             winnerText.color = new Color(winnerText.color.r, winnerText.color.g, winnerText.color.b, winnerText.color.a - (Time.deltaTime * 5));
-            perfectText.color = new Color(perfectText.color.r, perfectText.color.g, perfectText.color.b, perfectText.color.a - (Time.deltaTime * 5.1f));
+            perfectText.color = new Color(perfectText.color.r, perfectText.color.g, perfectText.color.b, perfectText.color.a - (Time.deltaTime * 5));
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
