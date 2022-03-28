@@ -297,6 +297,7 @@ public class GameController : MonoBehaviour {
             perfectText.color = new Color(perfectText.color.r, perfectText.color.g, perfectText.color.b, perfectText.color.a - (Time.deltaTime * 5.2f));
             yield return null;
         }
+        perfectText.color = new Color(perfectText.color.r, perfectText.color.g, perfectText.color.b, 0);
         yield return new WaitForSeconds(0.5f);
     }
 
