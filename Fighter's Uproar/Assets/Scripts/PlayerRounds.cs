@@ -35,12 +35,6 @@ public class PlayerRounds : MonoBehaviour
             roundOne.transform.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Victory(string victoryType)
     {
         roundsWon++;
@@ -50,6 +44,14 @@ public class PlayerRounds : MonoBehaviour
             roundTwo.transform.GetComponent<Image>().sprite = GetImage(victoryType);
         if (roundsWon == 3)
             roundThree.transform.GetComponent<Image>().sprite = GetImage(victoryType);
+    }
+
+    public void ResetDisplay()
+    {
+        roundsWon = 0;
+        roundOne.transform.GetComponent<Image>().sprite = imageNone;
+        roundTwo.transform.GetComponent<Image>().sprite = imageNone;
+        roundThree.transform.GetComponent<Image>().sprite = imageNone;
     }
 
     private Sprite GetImage(string victoryType)

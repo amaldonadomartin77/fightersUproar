@@ -8,7 +8,7 @@ using TMPro;
 public class GameController : MonoBehaviour {
 
     // Take in game objects
-	public GameObject playerOne, playerTwo;
+	public GameObject playerOne, playerTwo, victoryMenu;
     public int maxWins, maxTime;
     public bool movementAllowed;
 
@@ -16,7 +16,6 @@ public class GameController : MonoBehaviour {
     private Timer timer;
     private Vector3 initialP1Pos, initialP2Pos;
     private int p1WinCount, p2WinCount, currentRound;
-    private bool p1KO, p2KO;
 
     private void Awake()
     {
@@ -31,9 +30,6 @@ public class GameController : MonoBehaviour {
         currentRound = 1;
         timer = GameObject.Find("TimeRemaining").GetComponent<Timer>();
         movementAllowed = false;
-        Debug.LogError("movement disabled");
-        p1KO = false;
-        p2KO = false;
         fadeImage.GetComponent<Image>().color = new Color(0, 0, 0, 1);
     }
 
@@ -65,12 +61,12 @@ public class GameController : MonoBehaviour {
             else
                 StartCoroutine(HandleVictory(true, 3));
             timer.ResetTimer();
+            timer.ForceDisplay(true);
         }
 
         if (Input.GetKey("escape"))
         {
-            ResetRound();
-            Debug.Log("reset");
+            SceneManager.LoadScene("LevelSelectScene");
         }
     }
 
@@ -89,7 +85,11 @@ public class GameController : MonoBehaviour {
             p1UI.transform.Find("RoundsWon").gameObject.GetComponent<PlayerRounds>().Victory("Perfect");
         else
             p1UI.transform.Find("RoundsWon").gameObject.GetComponent<PlayerRounds>().Victory("Normal");
-        ResetRound();
+
+        if (p1WinCount == maxWins)
+            MatchIsOver(1);
+        else
+            ResetRound();
     }
 
     private void PlayerTwoWins()
@@ -99,7 +99,10 @@ public class GameController : MonoBehaviour {
             p2UI.transform.Find("RoundsWon").gameObject.GetComponent<PlayerRounds>().Victory("Perfect");
         else
             p2UI.transform.Find("RoundsWon").gameObject.GetComponent<PlayerRounds>().Victory("Normal");
-        ResetRound();
+        if (p2WinCount == maxWins)
+            MatchIsOver(2);
+        else
+            ResetRound();
     }
 
     private bool IsFinalRound()
@@ -136,6 +139,7 @@ public class GameController : MonoBehaviour {
         p2UI.transform.Find("HealthGauge").gameObject.GetComponent<HealthGauge>().ResetGauge();
         p2UI.transform.Find("SpecialGauge").gameObject.GetComponent<MeterGauge>().ResetGauge();
 
+        timer.ForceDisplay(false);
         timer.ResetTimer();
         currentRound++;
 
@@ -192,7 +196,7 @@ public class GameController : MonoBehaviour {
 
         yield return new WaitForSeconds(1);
         movementAllowed = true;
-        Debug.LogError("movement enabled");
+
         while (fightText.color.a < 1)
         {
             fightText.color = new Color(1.0f, 1.0f, 1.0f, fightText.color.a + (Time.deltaTime * 20));
@@ -290,18 +294,15 @@ public class GameController : MonoBehaviour {
         while (winnerText.color.a > 0.0f)
         {
             winnerText.color = new Color(winnerText.color.r, winnerText.color.g, winnerText.color.b, winnerText.color.a - (Time.deltaTime * 5));
-            perfectText.color = new Color(perfectText.color.r, perfectText.color.g, perfectText.color.b, perfectText.color.a - (Time.deltaTime * 5));
+            perfectText.color = new Color(perfectText.color.r, perfectText.color.g, perfectText.color.b, perfectText.color.a - (Time.deltaTime * 5.1f));
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
-
-        yield return StartCoroutine(ScreenFadeOut());
     }
 
     private IEnumerator HandleVictory(bool timeOver, int player)
     {
         movementAllowed = false;
-        Debug.LogError("movement disabled");
 
         if (timeOver)
             yield return StartCoroutine(BeginTimeUpAnimation());
@@ -316,6 +317,10 @@ public class GameController : MonoBehaviour {
                 yield return StartCoroutine(BeginWinAnimation(1, true));
             else
                 yield return StartCoroutine(BeginWinAnimation(1, false));
+
+            if(p1WinCount != maxWins - 1)
+                yield return StartCoroutine(ScreenFadeOut());
+
             PlayerOneWins();
         }
 
@@ -325,12 +330,71 @@ public class GameController : MonoBehaviour {
                 yield return StartCoroutine(BeginWinAnimation(2, true));
             else
                 yield return StartCoroutine(BeginWinAnimation(2, false));
+            
+            if (p2WinCount != maxWins - 1)
+                yield return StartCoroutine(ScreenFadeOut());
+
             PlayerTwoWins();
         }
         else
         {
             yield return StartCoroutine(BeginWinAnimation(0, false));
+            yield return StartCoroutine(ScreenFadeOut());
             ResetRound();
         }
+    }
+
+    public void MatchIsOver(int player)
+    {
+        victoryMenu.SetActive(true);
+        if (player == 1)
+            victoryMenu.transform.Find("VictoryText").gameObject.GetComponent<TextMeshProUGUI>().text = "P1 VICTORY";
+        else
+            victoryMenu.transform.Find("VictoryText").gameObject.GetComponent<TextMeshProUGUI>().text = "P2 VICTORY";
+
+    }
+
+    public void ResetMatch()
+    {
+        victoryMenu.SetActive(false);
+        StartCoroutine(ResetEntireMatch());
+    }
+
+    public void CharacterSelect()
+    {
+        victoryMenu.SetActive(false);
+        StartCoroutine(CharSel());
+    }
+
+    public void TitleScreen()
+    {
+        victoryMenu.SetActive(false);
+        StartCoroutine(Title());
+    }
+
+    private IEnumerator ResetEntireMatch()
+    {
+        yield return new WaitForSeconds(1f);
+        p1WinCount = 0;
+        p2WinCount = 0;
+        currentRound = 0;
+        yield return StartCoroutine(ScreenFadeOut());
+        p1UI.transform.Find("RoundsWon").gameObject.GetComponent<PlayerRounds>().ResetDisplay();
+        p2UI.transform.Find("RoundsWon").gameObject.GetComponent<PlayerRounds>().ResetDisplay();
+        ResetRound();
+    }
+
+    private IEnumerator CharSel()
+    {
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(ScreenFadeOut());
+        SceneManager.LoadScene("LevelSelectScene");
+    }
+
+    private IEnumerator Title()
+    {
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(ScreenFadeOut());
+        SceneManager.LoadScene("MainMenu");
     }
 }

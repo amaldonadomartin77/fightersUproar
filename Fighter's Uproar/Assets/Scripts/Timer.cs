@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     public GameController gameController;
     
     private float timeValue;
+    private bool disableTimer;
 
     private void Start()
     {
@@ -20,7 +21,8 @@ public class Timer : MonoBehaviour
     {
         if (timeValue >= 0)
         {
-            timeValue -= Time.deltaTime;
+            if (gameController.movementAllowed)
+                timeValue -= Time.deltaTime;
         }
         //end the match here
         else
@@ -32,12 +34,23 @@ public class Timer : MonoBehaviour
 
     void DisplayText(float timeToDisplay)
     {
+        if (disableTimer)
+        {
+            timeRemaining.text = 0.ToString();
+            return;
+        }
+
         if(timeToDisplay == 0)
         {
             timeToDisplay = 0;
         }
         float seconds = Mathf.FloorToInt(timeValue);
         timeRemaining.text = seconds.ToString();
+    }
+
+    public void ForceDisplay(bool choice)
+    {
+        disableTimer = choice;
     }
 
     public float GetTime()

@@ -50,6 +50,13 @@ public class Fighter2D_2_Movement : MonoBehaviour
     private HealthSystem healthSystem;
     private MeterSystem meterSystem;
 
+    private GameController gameController;
+
+    private void Awake()
+    {
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -62,11 +69,25 @@ public class Fighter2D_2_Movement : MonoBehaviour
     {
         //if (pauseSystem.GetIsPaused()) { return; }
         Debug.Log(timeBetweenPunch);
-        Move();
-        Jump();
-        SpecialPunch();
-        Punch();
-        Kick();
+        if (gameController.movementAllowed)
+        {
+            Move();
+            Jump();
+            SpecialPunch();
+            Punch();
+            Kick();
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("IsRunning", false);
+            GetComponent<Animator>().SetBool("IsJumping", false);
+            GetComponent<Animator>().SetBool("IsFalling", false);
+            Vector3 localPos = player.transform.InverseTransformPoint(target.transform.position);
+            if (localPos.x < 0)
+                GetComponent<SpriteRenderer>().flipX = true;
+            else
+                GetComponent<SpriteRenderer>().flipX = false;
+        }
         Die();
     }
 
