@@ -9,9 +9,9 @@ public class GameController : MonoBehaviour {
 
     // Take in game objects
 	public GameObject playerOne, playerTwo, victoryMenu;
-    public int maxWins, maxTime;
     public bool movementAllowed;
 
+    private int maxWins, maxTime;
     private GameObject p1UI, p2UI, uiText, fadeImage;
     private Timer timer;
     private Vector3 initialP1Pos, initialP2Pos;
@@ -31,6 +31,19 @@ public class GameController : MonoBehaviour {
         timer = GameObject.Find("TimeRemaining").GetComponent<Timer>();
         movementAllowed = false;
         fadeImage.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+        maxTime = Settings.s.roundTime;
+        switch(Settings.s.numberOfRounds)
+        {
+            case 1:
+                maxWins = 1;
+                break;
+            case 3:
+                maxWins = 2;
+                break;
+            case 5:
+                maxWins = 3;
+                break;
+        }
     }
 
     private void Start()

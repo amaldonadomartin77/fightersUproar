@@ -240,14 +240,14 @@ public class SelectorManager : MonoBehaviour
     {
         audioSource.PlayOneShot(backSound);
         yield return new WaitForSeconds(time);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("MainMenu");
     }
 
     private IEnumerator LoadGameplay(float time)
     {
         audioSource.PlayOneShot(confirmSound);
         yield return new WaitForSeconds(time);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("VersusMode2");
     }
 }
 

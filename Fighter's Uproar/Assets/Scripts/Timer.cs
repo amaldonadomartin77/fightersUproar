@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public Text timeRemaining;
+
     public GameController gameController;
     
     private float timeValue;
@@ -14,18 +15,18 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
-        timeValue = gameController.maxTime;
+        timeValue = Settings.s.roundTime;
     }
 
     void Update()
     {
-        if (timeValue >= 0)
+        if (timeValue >= 0 && timeValue < 99)
         {
             if (gameController.movementAllowed)
                 timeValue -= Time.deltaTime;
         }
         //end the match here
-        else
+        else if (timeValue != 100)
         {
             timeValue = 0;
         }
@@ -46,6 +47,11 @@ public class Timer : MonoBehaviour
         }
         float seconds = Mathf.FloorToInt(timeValue);
         timeRemaining.text = seconds.ToString();
+
+        if (timeToDisplay == 100)
+        {
+            timeRemaining.text = "\u221e";
+        }
     }
 
     public void ForceDisplay(bool choice)
@@ -60,6 +66,6 @@ public class Timer : MonoBehaviour
 
     public void ResetTimer()
     {
-        timeValue = gameController.maxTime;
+        timeValue = Settings.s.roundTime;
     }
 }

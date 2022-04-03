@@ -24,15 +24,11 @@ public class PlayerRounds : MonoBehaviour
     private void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
-        if (gameController.maxWins > 1)
-        {
-            roundOne.transform.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        if (Settings.s.numberOfRounds >= 3)
             roundTwo.transform.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-            if (gameController.maxWins == 3)
-                roundThree.transform.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-        }
-        else
-            roundOne.transform.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        if (Settings.s.numberOfRounds == 5)
+            roundThree.transform.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        roundOne.transform.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     public void Victory(string victoryType)

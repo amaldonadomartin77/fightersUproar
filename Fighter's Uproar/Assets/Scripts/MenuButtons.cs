@@ -8,19 +8,31 @@ public class MenuButtons : MonoBehaviour
 
     public void doFight()
     {
-        StartCoroutine(LoadCharSelect(1f));
+        StartCoroutine(LoadCharSelect(1.5f));
+    }
+
+    public void doSettings()
+    {
+        StartCoroutine(LoadSettings(1.5f));
     }
 
     public void doQuit()
     {
-        StartCoroutine(Quit(1f));
+        StartCoroutine(Quit(1.5f));
     }
 
     private IEnumerator LoadCharSelect(float time)
     {
         yield return new WaitForSeconds(time);
         Debug.Log("LoadScene");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("LevelSelectScene");
+    }
+
+    private IEnumerator LoadSettings(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("LoadScene");
+        SceneManager.LoadScene("OptionsMenu");
     }
 
     private IEnumerator Quit(float time)
