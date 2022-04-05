@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHARACTERS (WIP)
+  m_text: CHARACTERS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c5d8f588ae8dd34aa779402ec83d338, type: 2}
   m_sharedMaterial: {fileID: -1664655367747088178, guid: 8c5d8f588ae8dd34aa779402ec83d338, type: 2}
@@ -1561,7 +1561,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 791165787}
   m_OnClick:
     m_PersistentCalls:
@@ -1571,8 +1571,20 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 31e9ae3267f3ad64386af48e48ca1f7b, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: d112fe849e46df34f8c7811561b26965, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 487166362}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: doCharacters
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2781,7 +2793,7 @@ GameObject:
   - component: {fileID: 2092988998}
   - component: {fileID: 2092988997}
   m_Layer: 5
-  m_Name: Subtitle - Beta
+  m_Name: Subtitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2826,7 +2838,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Beta Version
+  m_text: Demo Version
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb2767184bad6a6448d9c32f44d6521b, type: 2}
   m_sharedMaterial: {fileID: 5715832865440598768, guid: bb2767184bad6a6448d9c32f44d6521b, type: 2}
