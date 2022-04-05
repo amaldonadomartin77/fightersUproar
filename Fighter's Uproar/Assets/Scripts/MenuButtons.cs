@@ -11,6 +11,11 @@ public class MenuButtons : MonoBehaviour
         StartCoroutine(LoadCharSelect(1.5f));
     }
 
+    public void doCharacters()
+    {
+        StartCoroutine(LoadCharacters(1.5f));
+    }
+
     public void doSettings()
     {
         StartCoroutine(LoadSettings(1.5f));
@@ -26,6 +31,13 @@ public class MenuButtons : MonoBehaviour
         yield return new WaitForSeconds(time);
         Debug.Log("LoadScene");
         SceneManager.LoadScene("LevelSelectScene");
+    }
+
+    private IEnumerator LoadCharacters(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("LoadScene");
+        SceneManager.LoadScene("CharacterLore");
     }
 
     private IEnumerator LoadSettings(float time)
