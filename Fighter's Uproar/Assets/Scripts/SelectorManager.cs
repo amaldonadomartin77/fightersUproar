@@ -12,6 +12,7 @@ public class SelectorManager : MonoBehaviour
 
 
     public Text playerNameText;
+    public Text aa;
     public Text playerSkill1Text;
     public Text playerSkill2Text;
     public Text playerSkill3Text;
@@ -115,7 +116,9 @@ public class SelectorManager : MonoBehaviour
         {
 
             // string levelID = currentSlot.GetComponet<LevelSelectItemScript>().levelID;
-
+            if(userid == 2 || userid == 3){
+                return;
+            }
             if(isOne == true){
                 user1 = userid;
                 isOne = false;
@@ -220,6 +223,9 @@ public class SelectorManager : MonoBehaviour
     }
     public void ClickSelectBtn()
     {
+        if(userid == 2 || userid == 3){
+            return;
+        }
         if(isOne == true){
             user1 = userid;
             isOne = false;
