@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 using System;
 
@@ -10,8 +11,21 @@ public class TitleMenu : MonoBehaviour
     public TextMeshProUGUI titleName, subTitle, pressStart;
     public AudioSource audioSource;
     public AudioClip soundClip;
+    public PlayerInput startInput;
+    public bool readyToStart = false;
+    private GameObject self;
 
-    private bool pressed = false;
+    public static bool initiated = false;
+
+    private void Awake()
+    {
+        self = this.gameObject;
+        if (initiated)
+        {
+            mainMenu.SetActive(true);
+            self.SetActive(false);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -19,15 +33,13 @@ public class TitleMenu : MonoBehaviour
         StartCoroutine(FadeInText(1f, pressStart));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PressStart(InputAction.CallbackContext ctx)
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !pressed)
+        if (readyToStart && ctx.performed)
         {
             audioSource.PlayOneShot(soundClip);
             StartCoroutine(FadeOutText(1f, pressStart));
             StartCoroutine(FadeOutLogo(0.8f, titleName, subTitle));
-            pressed = true;
         }
     }
 
@@ -40,6 +52,7 @@ public class TitleMenu : MonoBehaviour
             text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a + (Time.deltaTime * timeSpeed));
             yield return null;
         }
+        readyToStart = true;
     }
     private IEnumerator FadeOutText(float timeSpeed, TextMeshProUGUI text)
     {
@@ -62,6 +75,7 @@ public class TitleMenu : MonoBehaviour
             subTitle.color = new Color(subTitle.color.r, subTitle.color.g, subTitle.color.b, subTitle.color.a - (Time.deltaTime * timeSpeed));
             yield return null;
         }
+        initiated = true;
         mainMenu.SetActive(true);
     }
 }

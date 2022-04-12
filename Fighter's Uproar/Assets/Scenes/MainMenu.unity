@@ -1444,16 +1444,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 719419551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &719419553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2454,6 +2463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1470826328}
   - component: {fileID: 1470826329}
+  - component: {fileID: 1470826330}
   m_Layer: 5
   m_Name: TitleScreen
   m_TagString: Untagged
@@ -2501,6 +2511,110 @@ MonoBehaviour:
   pressStart: {fileID: 654390361}
   audioSource: {fileID: 915700296}
   soundClip: {fileID: 8300000, guid: 538baba793e4755448c55bf70558a078, type: 3}
+  startInput: {fileID: 1470826330}
+  readyToStart: 0
+--- !u!114 &1470826330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470826327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e03af11f-65d6-4ea4-bcd0-c621162964ee
+    m_ActionName: PlayerOne/Movement[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4c3ddea2-1d0a-4948-b687-5bd7f601dfc1
+    m_ActionName: PlayerOne/Jump[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f405c9a-3a71-4f0d-94f7-c0bb97aec730
+    m_ActionName: PlayerOne/Crouch[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ef67d898-cef7-4c87-8e96-278eb25b482b
+    m_ActionName: PlayerOne/Weak[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9f032fee-c92b-4625-99eb-a0333caa751d
+    m_ActionName: PlayerOne/Strong[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dc69ab48-31c9-4a3c-9f1c-96ab430ef8b3
+    m_ActionName: PlayerOne/Special[/Keyboard/t]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c40a23bf-b031-4d1f-9c2a-73187690a126
+    m_ActionName: PlayerOne/Pause[/Keyboard/backquote]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fd827f37-de3c-4180-9445-cf149f4dff96
+    m_ActionName: PlayerTwo/Movement[/Keyboard/j,/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 17d8c410-4d33-4719-824e-99c5d48140bd
+    m_ActionName: PlayerTwo/Jump[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58862dac-cd22-48b8-93d7-e80183c8937b
+    m_ActionName: PlayerTwo/Crouch[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9423177b-74f7-41bb-9dff-d0e1ed5ef2e4
+    m_ActionName: PlayerTwo/Weak[/Keyboard/o]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 81cb1ded-0295-4bfe-aadf-60c88abb4fe4
+    m_ActionName: PlayerTwo/Strong[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 36acc920-9387-4194-a363-4d7f25620d67
+    m_ActionName: PlayerTwo/Special[/Keyboard/leftBracket]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fbd553cc-06a5-4f13-922f-ab5954590dfb
+    m_ActionName: PlayerTwo/Pause[/Keyboard/backspace]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1470826329}
+        m_TargetAssemblyTypeName: TitleMenu, Assembly-CSharp
+        m_MethodName: PressStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: abd2d800-c229-407c-8500-96b285dd8c21
+    m_ActionName: Menu/Start Game[/Keyboard/space]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: ff35ef30-c3ce-4bc4-805c-2b86c1487a79
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1833926936
 GameObject:
   m_ObjectHideFlags: 0
