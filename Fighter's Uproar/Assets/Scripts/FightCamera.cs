@@ -65,6 +65,6 @@ public class FightCamera : MonoBehaviour
             _cameraValueZaxis = (_player2Position.x - _player1Position.x)/4;
 
         if (_cameraValueZaxis > -2) _cameraValueZaxis = -2;
-        _fightCamera.transform.position = new Vector3(_cameraValueXaxis, 1, _cameraValueZaxis + _cameraValueZaxisModifier);
+        _fightCamera.transform.position = new Vector3(_cameraValueXaxis, 1.5f, _cameraValueZaxis + _cameraValueZaxisModifier);
     }
 }

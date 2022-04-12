@@ -76,11 +76,6 @@ public class GameController : MonoBehaviour {
             timer.ResetTimer();
             timer.ForceDisplay(true);
         }
-
-        if (Input.GetKey("escape"))
-        {
-            SceneManager.LoadScene("LevelSelectScene");
-        }
     }
 
     private bool CheckForKO(GameObject player)

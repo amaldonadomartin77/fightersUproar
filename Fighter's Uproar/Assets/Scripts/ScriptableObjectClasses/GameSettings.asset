@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundTime: 60
   numberOfRounds: 3
-  musicEnabled: 0
-  soundEnabled: 0
+  musicEnabled: 1
+  soundEnabled: 1
