@@ -6,7 +6,7 @@
             "id": "ce8503ae-948d-47ff-becd-3f9fc859cbed",
             "actions": [
                 {
-                    "name": "Movement",
+                    "name": "MovementP1",
                     "type": "Button",
                     "id": "e03af11f-65d6-4ea4-bcd0-c621162964ee",
                     "expectedControlType": "Button",
@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
+                    "name": "JumpP1",
                     "type": "Button",
                     "id": "4c3ddea2-1d0a-4948-b687-5bd7f601dfc1",
                     "expectedControlType": "Button",
@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Crouch",
+                    "name": "CrouchP1",
                     "type": "Button",
                     "id": "6f405c9a-3a71-4f0d-94f7-c0bb97aec730",
                     "expectedControlType": "Button",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Weak",
+                    "name": "WeakP1",
                     "type": "Button",
                     "id": "ef67d898-cef7-4c87-8e96-278eb25b482b",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Strong",
+                    "name": "StrongP1",
                     "type": "Button",
                     "id": "9f032fee-c92b-4625-99eb-a0333caa751d",
                     "expectedControlType": "Button",
@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Special",
+                    "name": "SpecialP1",
                     "type": "Button",
                     "id": "dc69ab48-31c9-4a3c-9f1c-96ab430ef8b3",
                     "expectedControlType": "Button",
@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "PauseP!",
                     "type": "Button",
                     "id": "c40a23bf-b031-4d1f-9c2a-73187690a126",
                     "expectedControlType": "Button",
@@ -77,7 +77,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "JumpP1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -88,7 +88,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Crouch",
+                    "action": "CrouchP1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -99,7 +99,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Weak",
+                    "action": "WeakP1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -110,7 +110,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Strong",
+                    "action": "StrongP1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -121,7 +121,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Special",
+                    "action": "SpecialP1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -132,7 +132,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "PauseP!",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -143,7 +143,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementP1",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -154,7 +154,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementP1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -165,7 +165,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementP1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
@@ -176,16 +176,16 @@
             "id": "19a3b543-102f-45ec-bc46-97676b702ffb",
             "actions": [
                 {
-                    "name": "Movement",
+                    "name": "MovementP2",
                     "type": "Button",
                     "id": "fd827f37-de3c-4180-9445-cf149f4dff96",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.001,pressPoint=0.1)",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
+                    "name": "JumpP2",
                     "type": "Button",
                     "id": "17d8c410-4d33-4719-824e-99c5d48140bd",
                     "expectedControlType": "Button",
@@ -194,7 +194,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Crouch",
+                    "name": "CrouchP2",
                     "type": "Button",
                     "id": "58862dac-cd22-48b8-93d7-e80183c8937b",
                     "expectedControlType": "Button",
@@ -203,7 +203,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Weak",
+                    "name": "WeakP2",
                     "type": "Button",
                     "id": "9423177b-74f7-41bb-9dff-d0e1ed5ef2e4",
                     "expectedControlType": "Button",
@@ -212,7 +212,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Strong",
+                    "name": "StrongP2",
                     "type": "Button",
                     "id": "81cb1ded-0295-4bfe-aadf-60c88abb4fe4",
                     "expectedControlType": "Button",
@@ -221,7 +221,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Special",
+                    "name": "SpecialP2",
                     "type": "Button",
                     "id": "36acc920-9387-4194-a363-4d7f25620d67",
                     "expectedControlType": "Button",
@@ -230,7 +230,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "PauseP2",
                     "type": "Button",
                     "id": "fbd553cc-06a5-4f13-922f-ab5954590dfb",
                     "expectedControlType": "Button",
@@ -247,7 +247,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "JumpP2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -258,7 +258,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Crouch",
+                    "action": "CrouchP2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -269,7 +269,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Weak",
+                    "action": "WeakP2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -280,7 +280,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Strong",
+                    "action": "StrongP2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -291,7 +291,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Special",
+                    "action": "SpecialP2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -302,7 +302,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "PauseP2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -313,7 +313,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementP2",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -324,7 +324,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementP2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -335,7 +335,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementP2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

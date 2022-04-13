@@ -31,8 +31,12 @@ public class GameController : MonoBehaviour {
         timer = GameObject.Find("TimeRemaining").GetComponent<Timer>();
         movementAllowed = false;
         fadeImage.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+    }
+
+    private void Start()
+    {
         maxTime = Settings.s.roundTime;
-        switch(Settings.s.numberOfRounds)
+        switch (Settings.s.numberOfRounds)
         {
             case 1:
                 maxWins = 1;
@@ -44,10 +48,6 @@ public class GameController : MonoBehaviour {
                 maxWins = 3;
                 break;
         }
-    }
-
-    private void Start()
-    {
         BeginRound();
     }
 

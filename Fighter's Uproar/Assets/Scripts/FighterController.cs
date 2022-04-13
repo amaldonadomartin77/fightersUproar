@@ -117,6 +117,12 @@ public class FighterController : MonoBehaviour
         else
             GetComponent<Animator>().SetBool("IsFalling", false);
 
+        if (isGrounded)
+        {
+            GetComponent<Animator>().SetBool("IsJumping", false);
+            GetComponent<Animator>().SetBool("IsFalling", false);
+        }
+
         Die();
     }
 
