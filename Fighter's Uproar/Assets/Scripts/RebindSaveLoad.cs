@@ -3,42 +3,29 @@ using UnityEngine.InputSystem;
 
 public class RebindSaveLoad : MonoBehaviour
 {
-    public InputActionAsset actions;
+    [SerializeField] private InputActionAsset actions = null;
 
     private Object[] rebindDisplays;
-    private InputActionMap playerOneBinds, playerTwoBinds;
 
     public void OnEnable()
     {
         rebindDisplays = Object.FindObjectsOfType<RebindDisplay>();
 
-        playerOneBinds = actions.FindActionMap("PlayerOne");
-        playerTwoBinds = actions.FindActionMap("PlayerTwo");
-
-        var rebindsP1 = PlayerPrefs.GetString("rebindsP1");
-        var rebindsP2 = PlayerPrefs.GetString("rebindsP2");
-
-        if (!string.IsNullOrEmpty(rebindsP1))
-            playerOneBinds.LoadBindingOverridesFromJson(rebindsP1);
-
-        if (!string.IsNullOrEmpty(rebindsP2))
-            playerTwoBinds.LoadBindingOverridesFromJson(rebindsP2);
+        var rebinds = PlayerPrefs.GetString("rebinds");
+        if (!string.IsNullOrEmpty(rebinds))
+            actions.LoadBindingOverridesFromJson(rebinds);
 
     }
 
     public void OnDisable()
     {
-        var rebindsP1 = playerOneBinds.SaveBindingOverridesAsJson();
-        var rebindsP2 = playerTwoBinds.SaveBindingOverridesAsJson();
-
-        PlayerPrefs.SetString("rebindsP1", rebindsP1);
-        PlayerPrefs.SetString("rebindsP2", rebindsP2);
+        var rebinds = actions.SaveBindingOverridesAsJson();
+        PlayerPrefs.SetString("rebinds", rebinds);
     }
 
     public void ResetControls()
     {
-        playerOneBinds.RemoveAllBindingOverrides();
-        playerTwoBinds.RemoveAllBindingOverrides();
+        actions.RemoveAllBindingOverrides();
 
         foreach (RebindDisplay r in rebindDisplays)
         {

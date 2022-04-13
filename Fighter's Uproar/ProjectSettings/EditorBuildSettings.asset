@@ -23,4 +23,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VersusMode2.unity
     guid: d04b7580973885a46866de2a00b953f6
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: b569675ab2f12fd41b1ddc6e5f9fa405, type: 2}

@@ -7,6 +7,7 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     public GameObject titleMenu;
+    private static bool disableFade;
     GameObject menuHeader, background, fightButton, charButton, optionButton, quitButton, aceRender, bellaRender, isaacRender, katsuRender;
 
     // Start is called before the first frame update
@@ -23,18 +24,21 @@ public class MainMenu : MonoBehaviour
         bellaRender = GameObject.Find("BellaRender");
         isaacRender = GameObject.Find("IsaacRender");
         katsuRender = GameObject.Find("KatsuRender");
-        StartCoroutine(FadeInText(1.5f, menuHeader.GetComponent<TextMeshProUGUI>()));
-        StartCoroutine(FadeInImage(1.5f, background.GetComponent<Image>()));
-        StartCoroutine(FadeInImage(1.5f, aceRender.GetComponent<Image>()));
-        StartCoroutine(FadeInImage(1.5f, bellaRender.GetComponent<Image>()));
-        StartCoroutine(FadeInImage(1.5f, isaacRender.GetComponent<Image>()));
-        StartCoroutine(FadeInImage(1.5f, katsuRender.GetComponent<Image>()));
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        float time;
 
+        if (disableFade)
+            time = 5000;
+        else
+            time = 1.5f;
+
+        StartCoroutine(FadeInText(time, menuHeader.GetComponent<TextMeshProUGUI>()));
+        StartCoroutine(FadeInImage(time, background.GetComponent<Image>()));
+        StartCoroutine(FadeInImage(time, aceRender.GetComponent<Image>()));
+        StartCoroutine(FadeInImage(time, bellaRender.GetComponent<Image>()));
+        StartCoroutine(FadeInImage(time, isaacRender.GetComponent<Image>()));
+        StartCoroutine(FadeInImage(time, katsuRender.GetComponent<Image>()));
+        disableFade = true;
     }
 
     private IEnumerator FadeInText(float timeSpeed, TextMeshProUGUI text)
