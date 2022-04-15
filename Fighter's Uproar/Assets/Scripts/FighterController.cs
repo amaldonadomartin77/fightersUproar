@@ -51,6 +51,7 @@ public class FighterController : MonoBehaviour
     private MeterSystem meterSystem;
 
     private GameController gameController;
+    private float stunTime;
 
     private void Awake()
     {
@@ -73,25 +74,25 @@ public class FighterController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
         }
-        else if (isAttacking && gameController.movementAllowed)
+        else if (isAttacking)
         {
             rb.velocity = new Vector2(0, 0);
         }
-        else if (movingPos && gameController.movementAllowed)
+        else if (movingPos && gameController.movementAllowed && isGrounded && stunTime <= 0)
         {
             float moveBy = 1 * speed;
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
 
             GetComponent<Animator>().SetBool("IsRunning", true);
         }
-        else if (movingNeg && gameController.movementAllowed)
+        else if (movingNeg && gameController.movementAllowed && isGrounded && stunTime <= 0)
         {
             float moveBy = -1 * speed;
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
 
             GetComponent<Animator>().SetBool("IsRunning", true);
         }
-        else
+        else if (stunTime <= 0)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
             GetComponent<Animator>().SetBool("IsRunning", false);
@@ -100,12 +101,12 @@ public class FighterController : MonoBehaviour
         timeBetweenPunch -= Time.deltaTime;
         timeBetweenSpecialPunch -= Time.deltaTime;
         timeBetweenKick -= Time.deltaTime;
+        stunTime -= Time.deltaTime;
 
-        Vector3 localPos = player.transform.InverseTransformPoint(target.transform.position);
-        if (localPos.x < 0)
-            GetComponent<SpriteRenderer>().flipX = true;
-        else
+        if (EnemyToRight())
             GetComponent<SpriteRenderer>().flipX = false;
+        else
+            GetComponent<SpriteRenderer>().flipX = true;
 
         if (rb.velocity.y > 0)
             GetComponent<Animator>().SetBool("IsJumping", true);
@@ -142,16 +143,17 @@ public class FighterController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if (gameController.movementAllowed && ctx.performed && isGrounded)
+        if (gameController.movementAllowed && ctx.performed && isGrounded && stunTime <= 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            Debug.LogWarning("Before jump: " + rb.velocity.x);
+            rb.velocity = new Vector2(rb.velocity.x * 1.2f, jumpForce);
+            isGrounded = false;
         }
-
     }
 
     public void Weak(InputAction.CallbackContext ctx)
     {
-        if (gameController.movementAllowed && ctx.performed && isGrounded)
+        if (gameController.movementAllowed && ctx.performed && isGrounded && stunTime <= 0)
         {
             if (!specialActive)
             {
@@ -162,7 +164,7 @@ public class FighterController : MonoBehaviour
                     Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(punchPos.position, new Vector2(punchRangeX, punchRangeY), 0, enemyFighter);
                     for (int i = 0; i < enemiesToDamage.Length; i++)
                     {
-                        enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(punchDamage);
+                        enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(punchDamage, startTimeBetweenPunch);
                         StartCoroutine(playPunchSound());
                     }
                     timeBetweenPunch = startTimeBetweenPunch;
@@ -180,7 +182,7 @@ public class FighterController : MonoBehaviour
                         Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(specialPunchPos.position, new Vector2(specialPunchRangeX, specialPunchRangeY), 0, enemyFighter);
                         for (int i = 0; i < enemiesToDamage.Length; i++)
                         {
-                            enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(specialPunchDamage);
+                            enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(specialPunchDamage, startTimeBetweenSpecialPunch);
                             StartCoroutine(playSpecialHitSound());
                         }
                     }
@@ -192,7 +194,7 @@ public class FighterController : MonoBehaviour
 
     public void Strong(InputAction.CallbackContext ctx)
     {
-        if (gameController.movementAllowed && ctx.performed && isGrounded)
+        if (gameController.movementAllowed && ctx.performed && isGrounded && stunTime <= 0)
         {
             if (timeBetweenKick <= 0)
             {
@@ -201,7 +203,7 @@ public class FighterController : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(kickPos.position, new Vector2(kickRangeX, kickRangeY), 0, enemyFighter);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(kickDamage);
+                    enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(kickDamage, startTimeBetweenKick);
                     StartCoroutine(playKickSound());
                 }
                 timeBetweenKick = startTimeBetweenKick;
@@ -225,18 +227,51 @@ public class FighterController : MonoBehaviour
         Gizmos.DrawWireCube(specialPunchPos.position, new Vector3(specialPunchRangeX, specialPunchRangeY, 1));
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, float stunValue)
     {
-        GetComponent<Animator>().SetTrigger("Hit");
-        healthSystem.Damage(damage);
+        if ((EnemyToRight() && movingNeg) || (!EnemyToRight() && movingPos))
+            Block(0, stunValue);
+        else
+        {
+            GetComponent<Animator>().SetTrigger("Hit");
+            Knockback(damage * 0.5f);
+            healthSystem.Damage(damage);
+            stunTime = stunValue + 0.25f;
+        }
     }
 
-    public void Die()
+    private void Block(int damage, float stunValue)
+    {
+        //GetComponent<Animator>().SetTrigger("Block");
+        Knockback(damage * 0.5f);
+        healthSystem.Damage(damage);
+        stunTime = stunValue - 0.2f;
+    }
+
+    private void Knockback(float strength)
+    {
+        rb.velocity = new Vector3(0, rb.velocity.y);
+        if (EnemyToRight())
+            rb.velocity = new Vector3(-strength, rb.velocity.y);
+        else
+            rb.velocity = new Vector3(strength, rb.velocity.y);
+    }
+
+    private void Die()
     {
         if (healthSystem.GetHealthNormalized() == 0.0f)
         {
             GetComponent<Animator>().SetTrigger("Die");
         }
+    }
+
+    private bool EnemyToRight()
+    {
+        Vector3 pos = player.transform.InverseTransformPoint(target.transform.position);
+        if (pos.x < 0)
+            return false;
+        else
+            return true;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
