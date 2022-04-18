@@ -4061,7 +4061,19 @@ MonoBehaviour:
     m_ActionId: 4c3ddea2-1d0a-4948-b687-5bd7f601dfc1
     m_ActionName: PlayerOne/Jump[/Keyboard/w]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1196617853}
+        m_TargetAssemblyTypeName: FighterController, Assembly-CSharp
+        m_MethodName: Crouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6f405c9a-3a71-4f0d-94f7-c0bb97aec730
     m_ActionName: PlayerOne/Crouch[/Keyboard/s]
   - m_PersistentCalls:
@@ -5877,7 +5889,19 @@ MonoBehaviour:
     m_ActionId: 8ca52fa3-ad83-43db-bcde-f9d5a8262f5a
     m_ActionName: Gameplay/JumpP2[/Keyboard/i]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1839732901}
+        m_TargetAssemblyTypeName: FighterController, Assembly-CSharp
+        m_MethodName: Crouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e3a6fbf1-8441-4f04-bfcd-490707116a20
     m_ActionName: Gameplay/CrouchP2[/Keyboard/k]
   - m_PersistentCalls:

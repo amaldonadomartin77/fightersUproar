@@ -21,6 +21,7 @@ public class FighterController : MonoBehaviour
     public PlayerInput playerInput;
 
     private bool isAttacking;
+    private bool isCrouching;
 
     public Transform punchPos;
     public float punchRangeX;
@@ -78,14 +79,14 @@ public class FighterController : MonoBehaviour
         {
             rb.velocity = new Vector2(0, 0);
         }
-        else if (movingPos && gameController.movementAllowed && isGrounded && stunTime <= 0)
+        else if (movingPos && gameController.movementAllowed && isGrounded && stunTime <= 0 && !isCrouching)
         {
             float moveBy = 1 * speed;
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
 
             GetComponent<Animator>().SetBool("IsRunning", true);
         }
-        else if (movingNeg && gameController.movementAllowed && isGrounded && stunTime <= 0)
+        else if (movingNeg && gameController.movementAllowed && isGrounded && stunTime <= 0 && !isCrouching)
         {
             float moveBy = -1 * speed;
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
@@ -123,6 +124,11 @@ public class FighterController : MonoBehaviour
             GetComponent<Animator>().SetBool("IsJumping", false);
             GetComponent<Animator>().SetBool("IsFalling", false);
         }
+        
+        if (isCrouching)
+            GetComponent<SpriteRenderer>().flipY = true;
+        else
+            GetComponent<SpriteRenderer>().flipY = false;
 
         Die();
     }
@@ -145,9 +151,19 @@ public class FighterController : MonoBehaviour
     {
         if (gameController.movementAllowed && ctx.performed && isGrounded && stunTime <= 0)
         {
-            Debug.LogWarning("Before jump: " + rb.velocity.x);
             rb.velocity = new Vector2(rb.velocity.x * 1.2f, jumpForce);
             isGrounded = false;
+        }
+    }
+
+    public void Crouch(InputAction.CallbackContext ctx)
+    {
+        if (stunTime <= 0)
+        {
+            if (ctx.performed)
+                isCrouching = true;
+            else
+                isCrouching = false;
         }
     }
 
@@ -164,7 +180,7 @@ public class FighterController : MonoBehaviour
                     Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(punchPos.position, new Vector2(punchRangeX, punchRangeY), 0, enemyFighter);
                     for (int i = 0; i < enemiesToDamage.Length; i++)
                     {
-                        enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(punchDamage, startTimeBetweenPunch);
+                        enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(punchDamage, startTimeBetweenPunch, isCrouching);
                         StartCoroutine(playPunchSound());
                     }
                     timeBetweenPunch = startTimeBetweenPunch;
@@ -182,7 +198,7 @@ public class FighterController : MonoBehaviour
                         Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(specialPunchPos.position, new Vector2(specialPunchRangeX, specialPunchRangeY), 0, enemyFighter);
                         for (int i = 0; i < enemiesToDamage.Length; i++)
                         {
-                            enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(specialPunchDamage, startTimeBetweenSpecialPunch);
+                            enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(specialPunchDamage, startTimeBetweenSpecialPunch, isCrouching);
                             StartCoroutine(playSpecialHitSound());
                         }
                     }
@@ -203,7 +219,7 @@ public class FighterController : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(kickPos.position, new Vector2(kickRangeX, kickRangeY), 0, enemyFighter);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(kickDamage, startTimeBetweenKick);
+                    enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(kickDamage, startTimeBetweenKick, isCrouching);
                     StartCoroutine(playKickSound());
                 }
                 timeBetweenKick = startTimeBetweenKick;
@@ -227,9 +243,9 @@ public class FighterController : MonoBehaviour
         Gizmos.DrawWireCube(specialPunchPos.position, new Vector3(specialPunchRangeX, specialPunchRangeY, 1));
     }
 
-    public void TakeDamage(int damage, float stunValue)
+    public void TakeDamage(int damage, float stunValue, bool crouching)
     {
-        if ((EnemyToRight() && movingNeg) || (!EnemyToRight() && movingPos))
+        if (((EnemyToRight() && movingNeg) || (!EnemyToRight() && movingPos)) && ((isCrouching && crouching) || (!isCrouching && !crouching)))
             Block(0, stunValue);
         else
         {
