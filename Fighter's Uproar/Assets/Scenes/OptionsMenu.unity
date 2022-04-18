@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f16ad48400ada4a8abf40d0f0c8eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputAction: {fileID: 1159066442489942067, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
+  inputAction: {fileID: 689121243955203338, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
   rebindButton: {fileID: 245662727}
   waitingForInput: {fileID: 1200294135}
   displayText: {fileID: 1787730482}
@@ -868,7 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f16ad48400ada4a8abf40d0f0c8eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputAction: {fileID: -2655258784468923579, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
+  inputAction: {fileID: -5623948900353927740, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
   rebindButton: {fileID: 1254743142}
   waitingForInput: {fileID: 51544236}
   displayText: {fileID: 1991935014}
@@ -4717,7 +4717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f16ad48400ada4a8abf40d0f0c8eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputAction: {fileID: -7951093678383931959, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
+  inputAction: {fileID: 1312013418895876674, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
   rebindButton: {fileID: 878275541}
   waitingForInput: {fileID: 395537209}
   displayText: {fileID: 973436448}
@@ -4818,7 +4818,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 912522713}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RebindSaveLoad, Assembly-CSharp
         m_MethodName: ResetControls
         m_Mode: 1
@@ -7633,7 +7633,6 @@ GameObject:
   - component: {fileID: 912522711}
   - component: {fileID: 912522710}
   - component: {fileID: 912522709}
-  - component: {fileID: 912522713}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7726,19 +7725,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &912522713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912522708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6c2da2db9374dada6761b5e35121c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions: {fileID: -944628639613478452, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
 --- !u!1 &960722807
 GameObject:
   m_ObjectHideFlags: 0
@@ -8451,7 +8437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f16ad48400ada4a8abf40d0f0c8eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputAction: {fileID: -8082573249061307265, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
+  inputAction: {fileID: 7120397091356081499, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
   rebindButton: {fileID: 1917042850}
   waitingForInput: {fileID: 1519203875}
   displayText: {fileID: 1736518673}
@@ -9716,7 +9702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f16ad48400ada4a8abf40d0f0c8eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputAction: {fileID: -7098331324415903055, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
+  inputAction: {fileID: -2032501136315856055, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
   rebindButton: {fileID: 201874483}
   waitingForInput: {fileID: 1475726857}
   displayText: {fileID: 1564976589}
@@ -10816,7 +10802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f16ad48400ada4a8abf40d0f0c8eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputAction: {fileID: 1837531177634349003, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
+  inputAction: {fileID: -5104198533069528917, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
   rebindButton: {fileID: 1466979177}
   waitingForInput: {fileID: 1879801807}
   displayText: {fileID: 147768663}
@@ -14657,6 +14643,7 @@ GameObject:
   - component: {fileID: 1889673116}
   - component: {fileID: 1889673115}
   - component: {fileID: 1889673114}
+  - component: {fileID: 1889673117}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -14703,6 +14690,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1889673117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889673113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6c2da2db9374dada6761b5e35121c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
 --- !u!1 &1902890133
 GameObject:
   m_ObjectHideFlags: 0
@@ -14893,7 +14893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f16ad48400ada4a8abf40d0f0c8eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputAction: {fileID: 746439175714717975, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
+  inputAction: {fileID: -8811400347427911790, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
   rebindButton: {fileID: 241471848}
   waitingForInput: {fileID: 908013604}
   displayText: {fileID: 2113397761}
@@ -15794,6 +15794,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1889673117}
+        m_TargetAssemblyTypeName: RebindSaveLoad, Assembly-CSharp
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 173258571}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
@@ -16556,7 +16568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f16ad48400ada4a8abf40d0f0c8eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputAction: {fileID: -2655258784468923579, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
+  inputAction: {fileID: -5623948900353927740, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
   rebindButton: {fileID: 205983688}
   waitingForInput: {fileID: 36470077}
   displayText: {fileID: 2118047631}
