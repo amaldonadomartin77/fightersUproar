@@ -9,20 +9,23 @@ public class RebindSaveLoad : MonoBehaviour
 
     public void Start()
     {
+        rebindDisplays = Object.FindObjectsOfType<RebindDisplay>();
         Load();
     }
 
-    public void Save()
+    public void Load()
     {
-        rebindDisplays = Object.FindObjectsOfType<RebindDisplay>();
-
         var controls = PlayerPrefs.GetString("controls");
         if (!string.IsNullOrEmpty(controls))
             actions.LoadBindingOverridesFromJson(controls);
+        foreach (RebindDisplay r in rebindDisplays)
+        {
+            r.ReloadButton();
+        }
 
     }
 
-    public void Load()
+    public void Save()
     {
         var controls = actions.SaveBindingOverridesAsJson();
         PlayerPrefs.SetString("controls", controls);
