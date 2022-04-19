@@ -53,15 +53,15 @@ public class SelectorManager : MonoBehaviour
 
     string[] char1_info = { "CHARACTER 1", "Ace", 
                             "-Collecting data for the perfect fighter\n-Obsessed with finding breakthroughs\n-Modified body" };
-    string[] char1_skill1 = { "Skill1", "diu diu diu  11" };
-    string[] char1_skill2 = { "Skill2", "diu diu diu di di  12" };
-    string[] char1_skill3 = { "Skill3", "diu diu diu pa pa  13" };
+    string[] char1_skill1 = { "Slice", "A quick knife slice that deals heavy damage" };
+    string[] char1_skill2 = { "Laser Shot", "A powerful shot that cuts the across the arena" };
+    string[] char1_skill3 = { "Poison Nade", "An AOE ground attack that spews a puddle of poison that can inflict damage to the opponent" };
 
     string[] char2_info = { "CHARACTER 2", "Bella", 
                             "Loves no one but his bike, lone wolf.\n-Wields a single rifle, knife for punch.\n-Mercenary" };
-    string[] char2_skill1 = { "Skill1", "zi zi diu diu diu  21" };
-    string[] char2_skill2 = { "Skill2", "di di diu diu diu  22" };
-    string[] char2_skill3 = { "Skill3", "pa pa diu diu diu  23" };
+    string[] char2_skill1 = { "Punch", " A signature punch move that deals heavy damage" };
+    string[] char2_skill2 = { "Rocket Punch", "A special punch move that launches a projectile at the opponent" };
+    string[] char2_skill3 = { "Dragon Punch", "Bella’s signature rising attack move that delivers a striking uppercut against the opponent" };
 
     string[,] characterSkillList = { { "Skill 1 descrption will be here: ----", "Skill 2 descrption will be here:------------------", "Skill 2 descrption will be here:-------------------" }, { "Skill 1 descrption will be here:-----------------", "Skill 2 descrption will be here", "Skill 3 descrption will be here" },
                                         { "Skill 1 descrption will be here", "Skill 2 descrption will be here", "CCA" }, { "AACC", "BBAA", "CCAA" } };
@@ -169,11 +169,11 @@ public class SelectorManager : MonoBehaviour
         playerInfo_1_Text.text = "Comming Soon";
         playerInfo_2_Text.text = "";
         playerSkill_1_0_Text.text = "";
-        playerSkill_1_1_Text.text = "";
+        playerSkill_1_1_Text.text = "Comming Soon";
         playerSkill_2_0_Text.text = "";
-        playerSkill_2_1_Text.text = "";
+        playerSkill_2_1_Text.text = "Comming Soon";
         playerSkill_3_0_Text.text = "";
-        playerSkill_3_1_Text.text = "";
+        playerSkill_3_1_Text.text = "Comming Soon";
         userid = 3;
         audioSource.PlayOneShot(cursorSound);
         selectBtn.gameObject.SetActive(false);
@@ -190,11 +190,11 @@ public class SelectorManager : MonoBehaviour
         playerInfo_1_Text.text = "Comming Soon";
         playerInfo_2_Text.text = "";
         playerSkill_1_0_Text.text = "";
-        playerSkill_1_1_Text.text = "";
+        playerSkill_1_1_Text.text = "Comming Soon";
         playerSkill_2_0_Text.text = "";
-        playerSkill_2_1_Text.text = "";
+        playerSkill_2_1_Text.text = "Comming Soon";
         playerSkill_3_0_Text.text = "";
-        playerSkill_3_1_Text.text = "";
+        playerSkill_3_1_Text.text = "Comming Soon";
         userid = 3;
         audioSource.PlayOneShot(cursorSound);
         selectBtn.gameObject.SetActive(false);
