@@ -2,7 +2,7 @@
     "name": "GameControls",
     "maps": [
         {
-            "name": "PlayerOne",
+            "name": "Gameplay",
             "id": "ce8503ae-948d-47ff-becd-3f9fc859cbed",
             "actions": [
                 {
@@ -29,7 +29,7 @@
                     "id": "6f405c9a-3a71-4f0d-94f7-c0bb97aec730",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.001)",
                     "initialStateCheck": false
                 },
                 {
@@ -60,9 +60,72 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PauseP!",
+                    "name": "PauseP1",
                     "type": "Button",
                     "id": "c40a23bf-b031-4d1f-9c2a-73187690a126",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MovementP2",
+                    "type": "Button",
+                    "id": "737b636a-52c2-4821-a378-1b41ce60f660",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.001,pressPoint=0.1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "JumpP2",
+                    "type": "Button",
+                    "id": "8ca52fa3-ad83-43db-bcde-f9d5a8262f5a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CrouchP2",
+                    "type": "Button",
+                    "id": "e3a6fbf1-8441-4f04-bfcd-490707116a20",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.001)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "WeakP2",
+                    "type": "Button",
+                    "id": "151d2fea-aa64-4f16-9fb3-a0dc95cad834",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StrongP2",
+                    "type": "Button",
+                    "id": "40520d1b-ce6d-4029-a7aa-fa7bd552009c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SpecialP2",
+                    "type": "Button",
+                    "id": "17de9e7e-e765-4a88-8eff-19a3c6753904",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.001,pressPoint=0.5)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PauseP2",
+                    "type": "Button",
+                    "id": "7756710a-8c74-4108-b327-9e5c4efb39b7",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -132,7 +195,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PauseP!",
+                    "action": "PauseP1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -168,147 +231,10 @@
                     "action": "MovementP1",
                     "isComposite": false,
                     "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "PlayerTwo",
-            "id": "19a3b543-102f-45ec-bc46-97676b702ffb",
-            "actions": [
-                {
-                    "name": "MovementP2",
-                    "type": "Button",
-                    "id": "fd827f37-de3c-4180-9445-cf149f4dff96",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold(duration=0.001,pressPoint=0.1)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "JumpP2",
-                    "type": "Button",
-                    "id": "17d8c410-4d33-4719-824e-99c5d48140bd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "CrouchP2",
-                    "type": "Button",
-                    "id": "58862dac-cd22-48b8-93d7-e80183c8937b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "WeakP2",
-                    "type": "Button",
-                    "id": "9423177b-74f7-41bb-9dff-d0e1ed5ef2e4",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "StrongP2",
-                    "type": "Button",
-                    "id": "81cb1ded-0295-4bfe-aadf-60c88abb4fe4",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SpecialP2",
-                    "type": "Button",
-                    "id": "36acc920-9387-4194-a363-4d7f25620d67",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold(duration=0.001,pressPoint=0.5)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "PauseP2",
-                    "type": "Button",
-                    "id": "fbd553cc-06a5-4f13-922f-ab5954590dfb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "7ac231c3-564e-4dca-b97c-960172b820e1",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "JumpP2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7e25e236-329a-4269-9749-dd5596e55125",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CrouchP2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b01e2bc8-67cb-4ee7-afa6-1d670b5d7fb0",
-                    "path": "<Keyboard>/o",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WeakP2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "294272fb-ea6f-4e96-907f-f89aedb52254",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "StrongP2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b69043db-8083-4301-b85a-3eea3de04334",
-                    "path": "<Keyboard>/leftBracket",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SpecialP2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "16a1f689-1ddf-4129-9c63-903595546917",
-                    "path": "<Keyboard>/backspace",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PauseP2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "1D Axis",
-                    "id": "25994c9f-4a45-43bf-a2ed-040a17dfe09d",
+                    "id": "0ac18208-8089-4fa8-94e7-ef7988fcfc12",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -319,7 +245,7 @@
                 },
                 {
                     "name": "negative",
-                    "id": "b9810158-c465-4fc7-a9f1-032d3ea6cf80",
+                    "id": "ab5dc3cc-1001-4576-98f6-3df603f38709",
                     "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
@@ -330,7 +256,7 @@
                 },
                 {
                     "name": "positive",
-                    "id": "5a2dc80e-cbd1-4125-9568-9280eae69bba",
+                    "id": "7abea6f1-e545-42c0-a776-7d68c2b09f4c",
                     "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
@@ -338,6 +264,72 @@
                     "action": "MovementP2",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c4bfc9d3-337d-409b-b9b7-a47869305607",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpP2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8a857a6f-2fc4-4dd1-a026-e43eab29bba7",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CrouchP2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "720add81-1bec-4639-9135-61a4630b0162",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WeakP2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ddce852f-2a5f-4b26-8920-940eee9e3d68",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StrongP2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "337dd6da-cb56-4899-b08f-ceb4abb0bed3",
+                    "path": "<Keyboard>/leftBracket",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpecialP2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1b88717-619c-4ad1-b13e-889e29143ef9",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseP2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

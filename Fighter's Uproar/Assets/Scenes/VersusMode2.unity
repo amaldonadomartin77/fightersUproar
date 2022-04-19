@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -216,7 +216,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &39201288
 GameObject:
@@ -1038,7 +1038,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1396,7 +1396,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &346397065
 GameObject:
@@ -1574,7 +1574,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &467194452
 GameObject:
@@ -2418,7 +2418,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &673041817
 GameObject:
@@ -2711,7 +2711,6 @@ GameObject:
   - component: {fileID: 879310597}
   - component: {fileID: 879310596}
   - component: {fileID: 879310595}
-  - component: {fileID: 879310599}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2799,26 +2798,13 @@ RectTransform:
   - {fileID: 650867555}
   - {fileID: 1940494304}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &879310599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879310594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6c2da2db9374dada6761b5e35121c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions: {fileID: -944628639613478452, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
 --- !u!1 &893980026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 893980028}
   - component: {fileID: 893980027}
+  - component: {fileID: 893980029}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -2861,8 +2848,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &893980029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893980026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6c2da2db9374dada6761b5e35121c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 10c4ce5f6e6e40940a7206654cd1cba3, type: 3}
 --- !u!1 &897059033
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,7 +3242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999691182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.11, y: 0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1839732896}
@@ -3846,8 +3846,8 @@ GameObject:
   - component: {fileID: 1196617851}
   - component: {fileID: 1196617849}
   m_Layer: 6
-  m_Name: Fighter2D
-  m_TagString: Untagged
+  m_Name: Ace
+  m_TagString: Ace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3883,7 +3883,7 @@ Animator:
   m_GameObject: {fileID: 1196617843}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9660c51dfdcf801488548ba089ff14a7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 97ecc2a898b4b484c960fe57abfbeaa4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3932,12 +3932,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 8738534520840ed48b5125746dd049ad, type: 3}
+  m_Sprite: {fileID: -3894137142494832001, guid: a697276cf0b142b4a9d0a70f3726d879, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.62, y: 1.62}
+  m_Size: {x: 12.000001, y: 12.01172}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3951,13 +3951,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196617843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.2129536, y: 2.6194415, z: -1.3212638}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: -6.04, y: 2.53, z: -1.3212638}
+  m_LocalScale: {x: 0.66, y: 0.66, z: 10}
   m_Children:
   - {fileID: 942287598}
   - {fileID: 1333098223}
   - {fileID: 2145298879}
-  - {fileID: 1809676295}
   m_Father: {fileID: 1675239735}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3974,8 +3973,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0.000000022351742}
-  m_Size: {x: 0.2, y: 0.4}
+  m_Offset: {x: 0.24273714, y: 0.57061857}
+  m_Size: {x: 3.6171358, y: 8.450414}
   m_Direction: 0
 --- !u!114 &1196617850
 MonoBehaviour:
@@ -4062,7 +4061,19 @@ MonoBehaviour:
     m_ActionId: 4c3ddea2-1d0a-4948-b687-5bd7f601dfc1
     m_ActionName: PlayerOne/Jump[/Keyboard/w]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1196617853}
+        m_TargetAssemblyTypeName: FighterController, Assembly-CSharp
+        m_MethodName: Crouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6f405c9a-3a71-4f0d-94f7-c0bb97aec730
     m_ActionName: PlayerOne/Crouch[/Keyboard/s]
   - m_PersistentCalls:
@@ -4119,39 +4130,39 @@ MonoBehaviour:
     m_ActionName: PlayerOne/Pause[/Keyboard/backquote]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: fd827f37-de3c-4180-9445-cf149f4dff96
-    m_ActionName: PlayerTwo/Movement[/Keyboard/j,/Keyboard/l]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 17d8c410-4d33-4719-824e-99c5d48140bd
-    m_ActionName: PlayerTwo/Jump[/Keyboard/i]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 58862dac-cd22-48b8-93d7-e80183c8937b
-    m_ActionName: PlayerTwo/Crouch[/Keyboard/k]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9423177b-74f7-41bb-9dff-d0e1ed5ef2e4
-    m_ActionName: PlayerTwo/Weak[/Keyboard/o]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 81cb1ded-0295-4bfe-aadf-60c88abb4fe4
-    m_ActionName: PlayerTwo/Strong[/Keyboard/p]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 36acc920-9387-4194-a363-4d7f25620d67
-    m_ActionName: PlayerTwo/Special[/Keyboard/leftBracket]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fbd553cc-06a5-4f13-922f-ab5954590dfb
-    m_ActionName: PlayerTwo/Pause[/Keyboard/backspace]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: abd2d800-c229-407c-8500-96b285dd8c21
     m_ActionName: Menu/Start Game[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 737b636a-52c2-4821-a378-1b41ce60f660
+    m_ActionName: Gameplay/MovementP2[/Keyboard/j,/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8ca52fa3-ad83-43db-bcde-f9d5a8262f5a
+    m_ActionName: Gameplay/JumpP2[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e3a6fbf1-8441-4f04-bfcd-490707116a20
+    m_ActionName: Gameplay/CrouchP2[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 151d2fea-aa64-4f16-9fb3-a0dc95cad834
+    m_ActionName: Gameplay/WeakP2[/Keyboard/o]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 40520d1b-ce6d-4029-a7aa-fa7bd552009c
+    m_ActionName: Gameplay/StrongP2[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 17de9e7e-e765-4a88-8eff-19a3c6753904
+    m_ActionName: Gameplay/SpecialP2[/Keyboard/leftBracket]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7756710a-8c74-4108-b327-9e5c4efb39b7
+    m_ActionName: Gameplay/PauseP2[/Keyboard/backspace]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerOne
+  m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1196617853
@@ -4191,6 +4202,14 @@ MonoBehaviour:
   specialPunchRangeY: 13
   specialPunchDamage: 15
   startTimeBetweenSpecialPunch: 0.667
+  fireballPrefab: {fileID: 0}
+  poisonPrefab: {fileID: 0}
+  launchOffset: {fileID: 0}
+  poisonLocation: {fileID: 0}
+  specialKickRangeX: 0
+  specialKickRangeY: 0
+  specialKickDamage: 0
+  startTimeBetweenSpecialKick: 0
   audioSource: {fileID: 338086481}
   footstepSound: {fileID: 0}
   punchSound: {fileID: 8300000, guid: 210a3efad208d504b92e1d8835cf119c, type: 3}
@@ -4407,7 +4426,7 @@ Transform:
   - {fileID: 1155336827}
   - {fileID: 1289507047}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1333098222
 GameObject:
@@ -5297,7 +5316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675239734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2129536, y: -3.6194415, z: 1.3212638}
+  m_LocalPosition: {x: 1.2129536, y: -2.84, z: 1.3212638}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1196617847}
@@ -5551,11 +5570,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809676294}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.22746716, y: 0.19373469, z: 0.20699482}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: -2.7253284, y: 1.51, z: 2.0699482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1839732896}
-  m_Father: {fileID: 1196617847}
+  m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1837491648
@@ -5606,7 +5625,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1837852733 stripped
 Transform:
@@ -5631,8 +5650,8 @@ GameObject:
   - component: {fileID: 1839732899}
   - component: {fileID: 1839732892}
   m_Layer: 7
-  m_Name: Fighter2D
-  m_TagString: Untagged
+  m_Name: Bella
+  m_TagString: Bella
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5650,8 +5669,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.000000007450581}
-  m_Size: {x: 0.2, y: 0.4}
+  m_Offset: {x: 0.06420779, y: 0.04291439}
+  m_Size: {x: 2.4664016, y: 5.085829}
   m_Direction: 0
 --- !u!50 &1839732893
 Rigidbody2D:
@@ -5684,7 +5703,7 @@ Animator:
   m_GameObject: {fileID: 1839732891}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9660c51dfdcf801488548ba089ff14a7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1b7167ac59c80204cb64ad684cad3969, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5733,7 +5752,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 8738534520840ed48b5125746dd049ad, type: 3}
+  m_Sprite: {fileID: 2777629057056566404, guid: e3cc04c3f403d554cba98cc90c61bdb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -5753,7 +5772,7 @@ Transform:
   m_GameObject: {fileID: 1839732891}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.7253284, y: -1.9373469, z: -2.0699482}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 10}
   m_Children:
   - {fileID: 46786903}
   - {fileID: 1991124821}
@@ -5842,6 +5861,10 @@ MonoBehaviour:
     m_ActionId: c40a23bf-b031-4d1f-9c2a-73187690a126
     m_ActionName: PlayerOne/Pause[/Keyboard/backquote]
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: abd2d800-c229-407c-8500-96b285dd8c21
+    m_ActionName: Menu/Start Game[/Keyboard/space]
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1839732901}
         m_TargetAssemblyTypeName: FighterController, Assembly-CSharp
@@ -5855,8 +5878,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: fd827f37-de3c-4180-9445-cf149f4dff96
-    m_ActionName: PlayerTwo/Movement[/Keyboard/j,/Keyboard/l]
+    m_ActionId: 737b636a-52c2-4821-a378-1b41ce60f660
+    m_ActionName: Gameplay/MovementP2[/Keyboard/j,/Keyboard/l]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1839732901}
@@ -5871,12 +5894,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 17d8c410-4d33-4719-824e-99c5d48140bd
-    m_ActionName: PlayerTwo/Jump[/Keyboard/i]
+    m_ActionId: 8ca52fa3-ad83-43db-bcde-f9d5a8262f5a
+    m_ActionName: Gameplay/JumpP2[/Keyboard/i]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 58862dac-cd22-48b8-93d7-e80183c8937b
-    m_ActionName: PlayerTwo/Crouch[/Keyboard/k]
+      m_Calls:
+      - m_Target: {fileID: 1839732901}
+        m_TargetAssemblyTypeName: FighterController, Assembly-CSharp
+        m_MethodName: Crouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e3a6fbf1-8441-4f04-bfcd-490707116a20
+    m_ActionName: Gameplay/CrouchP2[/Keyboard/k]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1839732901}
@@ -5891,8 +5926,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 9423177b-74f7-41bb-9dff-d0e1ed5ef2e4
-    m_ActionName: PlayerTwo/Weak[/Keyboard/o]
+    m_ActionId: 151d2fea-aa64-4f16-9fb3-a0dc95cad834
+    m_ActionName: Gameplay/WeakP2[/Keyboard/o]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1839732901}
@@ -5907,8 +5942,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 81cb1ded-0295-4bfe-aadf-60c88abb4fe4
-    m_ActionName: PlayerTwo/Strong[/Keyboard/p]
+    m_ActionId: 40520d1b-ce6d-4029-a7aa-fa7bd552009c
+    m_ActionName: Gameplay/StrongP2[/Keyboard/p]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1839732901}
@@ -5923,19 +5958,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 36acc920-9387-4194-a363-4d7f25620d67
-    m_ActionName: PlayerTwo/Special[/Keyboard/leftBracket]
+    m_ActionId: 17de9e7e-e765-4a88-8eff-19a3c6753904
+    m_ActionName: Gameplay/SpecialP2[/Keyboard/leftBracket]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: fbd553cc-06a5-4f13-922f-ab5954590dfb
-    m_ActionName: PlayerTwo/Pause[/Keyboard/backspace]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: abd2d800-c229-407c-8500-96b285dd8c21
-    m_ActionName: Menu/Start Game[/Keyboard/space]
+    m_ActionId: 7756710a-8c74-4108-b327-9e5c4efb39b7
+    m_ActionName: Gameplay/PauseP2[/Keyboard/backspace]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerTwo
+  m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1839732901
@@ -5975,6 +6006,14 @@ MonoBehaviour:
   specialPunchRangeY: 13
   specialPunchDamage: 15
   startTimeBetweenSpecialPunch: 0.667
+  fireballPrefab: {fileID: 7810173683842942951, guid: a3a5194a73c2f804588303d838e3cd0f, type: 3}
+  poisonPrefab: {fileID: 0}
+  launchOffset: {fileID: 999691183}
+  poisonLocation: {fileID: 0}
+  specialKickRangeX: 0
+  specialKickRangeY: 0
+  specialKickDamage: 0
+  startTimeBetweenSpecialKick: 0
   audioSource: {fileID: 338086481}
   footstepSound: {fileID: 0}
   punchSound: {fileID: 8300000, guid: 210a3efad208d504b92e1d8835cf119c, type: 3}
@@ -6783,7 +6822,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2119201320
 GameObject:
