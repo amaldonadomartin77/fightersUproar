@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3242,7 +3242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999691182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.11, y: 0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1839732896}
@@ -3846,8 +3846,8 @@ GameObject:
   - component: {fileID: 1196617851}
   - component: {fileID: 1196617849}
   m_Layer: 6
-  m_Name: Fighter2D
-  m_TagString: Untagged
+  m_Name: Ace
+  m_TagString: Ace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3883,7 +3883,7 @@ Animator:
   m_GameObject: {fileID: 1196617843}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9660c51dfdcf801488548ba089ff14a7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 97ecc2a898b4b484c960fe57abfbeaa4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3932,12 +3932,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 8738534520840ed48b5125746dd049ad, type: 3}
+  m_Sprite: {fileID: -3894137142494832001, guid: a697276cf0b142b4a9d0a70f3726d879, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.62, y: 1.62}
+  m_Size: {x: 12.000001, y: 12.01172}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3951,8 +3951,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196617843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.2129536, y: 2.6194415, z: -1.3212638}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: -6.04, y: 2.53, z: -1.3212638}
+  m_LocalScale: {x: 0.66, y: 0.66, z: 10}
   m_Children:
   - {fileID: 942287598}
   - {fileID: 1333098223}
@@ -3973,8 +3973,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0.000000022351742}
-  m_Size: {x: 0.2, y: 0.4}
+  m_Offset: {x: 0.24273714, y: 0.57061857}
+  m_Size: {x: 3.6171358, y: 8.450414}
   m_Direction: 0
 --- !u!114 &1196617850
 MonoBehaviour:
@@ -4202,6 +4202,14 @@ MonoBehaviour:
   specialPunchRangeY: 13
   specialPunchDamage: 15
   startTimeBetweenSpecialPunch: 0.667
+  fireballPrefab: {fileID: 0}
+  poisonPrefab: {fileID: 0}
+  launchOffset: {fileID: 0}
+  poisonLocation: {fileID: 0}
+  specialKickRangeX: 0
+  specialKickRangeY: 0
+  specialKickDamage: 0
+  startTimeBetweenSpecialKick: 0
   audioSource: {fileID: 338086481}
   footstepSound: {fileID: 0}
   punchSound: {fileID: 8300000, guid: 210a3efad208d504b92e1d8835cf119c, type: 3}
@@ -5308,7 +5316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675239734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2129536, y: -3.6194415, z: 1.3212638}
+  m_LocalPosition: {x: 1.2129536, y: -2.84, z: 1.3212638}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1196617847}
@@ -5562,7 +5570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809676294}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.7253284, y: 0.93734694, z: 2.0699482}
+  m_LocalPosition: {x: -2.7253284, y: 1.51, z: 2.0699482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1839732896}
@@ -5642,8 +5650,8 @@ GameObject:
   - component: {fileID: 1839732899}
   - component: {fileID: 1839732892}
   m_Layer: 7
-  m_Name: Fighter2D
-  m_TagString: Untagged
+  m_Name: Bella
+  m_TagString: Bella
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5661,8 +5669,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.000000007450581}
-  m_Size: {x: 0.2, y: 0.4}
+  m_Offset: {x: 0.06420779, y: 0.04291439}
+  m_Size: {x: 2.4664016, y: 5.085829}
   m_Direction: 0
 --- !u!50 &1839732893
 Rigidbody2D:
@@ -5695,7 +5703,7 @@ Animator:
   m_GameObject: {fileID: 1839732891}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9660c51dfdcf801488548ba089ff14a7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1b7167ac59c80204cb64ad684cad3969, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5744,7 +5752,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 8738534520840ed48b5125746dd049ad, type: 3}
+  m_Sprite: {fileID: 2777629057056566404, guid: e3cc04c3f403d554cba98cc90c61bdb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -5764,7 +5772,7 @@ Transform:
   m_GameObject: {fileID: 1839732891}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.7253284, y: -1.9373469, z: -2.0699482}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 10}
   m_Children:
   - {fileID: 46786903}
   - {fileID: 1991124821}
@@ -5998,6 +6006,14 @@ MonoBehaviour:
   specialPunchRangeY: 13
   specialPunchDamage: 15
   startTimeBetweenSpecialPunch: 0.667
+  fireballPrefab: {fileID: 7810173683842942951, guid: a3a5194a73c2f804588303d838e3cd0f, type: 3}
+  poisonPrefab: {fileID: 0}
+  launchOffset: {fileID: 999691183}
+  poisonLocation: {fileID: 0}
+  specialKickRangeX: 0
+  specialKickRangeY: 0
+  specialKickDamage: 0
+  startTimeBetweenSpecialKick: 0
   audioSource: {fileID: 338086481}
   footstepSound: {fileID: 0}
   punchSound: {fileID: 8300000, guid: 210a3efad208d504b92e1d8835cf119c, type: 3}

@@ -22,6 +22,7 @@ public class FighterController : MonoBehaviour
 
     private bool isAttacking;
     private bool isCrouching;
+    private bool isShoryu;
 
     public Transform punchPos;
     public float punchRangeX;
@@ -44,6 +45,17 @@ public class FighterController : MonoBehaviour
     private float timeBetweenSpecialPunch;
     public float startTimeBetweenSpecialPunch;
     private bool specialActive;
+
+    public Fireball fireballPrefab;
+    public Poison poisonPrefab;
+    public Transform launchOffset;
+    public Transform poisonLocation;
+
+    public float specialKickRangeX;
+    public float specialKickRangeY;
+    public int specialKickDamage;
+    private float timeBetweenSpecialKick;
+    public float startTimeBetweenSpecialKick;
 
     public AudioSource audioSource;
     public AudioClip footstepSound, punchSound, kickSound, specialHitSound;
@@ -93,7 +105,7 @@ public class FighterController : MonoBehaviour
 
             GetComponent<Animator>().SetBool("IsRunning", true);
         }
-        else if (stunTime <= 0)
+        else if (stunTime <= 0 && !isShoryu)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
             GetComponent<Animator>().SetBool("IsRunning", false);
@@ -109,16 +121,22 @@ public class FighterController : MonoBehaviour
         else
             GetComponent<SpriteRenderer>().flipX = true;
 
-        if (rb.velocity.y > 0)
+        if (rb.velocity.y > 0 && !isShoryu)
             GetComponent<Animator>().SetBool("IsJumping", true);
         else
             GetComponent<Animator>().SetBool("IsJumping", false);
 
         if (rb.velocity.y < 0)
+        {
             GetComponent<Animator>().SetBool("IsFalling", true);
+            isShoryu = false;
+        }
         else
+        {
             GetComponent<Animator>().SetBool("IsFalling", false);
+        }            
 
+        
         if (isGrounded)
         {
             GetComponent<Animator>().SetBool("IsJumping", false);
@@ -176,7 +194,7 @@ public class FighterController : MonoBehaviour
                 if (timeBetweenPunch <= 0)
                 {
                     isAttacking = true;
-                    GetComponent<Animator>().SetTrigger("standingPunch");
+                    GetComponent<Animator>().SetTrigger("standingWeak");
                     Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(punchPos.position, new Vector2(punchRangeX, punchRangeY), 0, enemyFighter);
                     for (int i = 0; i < enemiesToDamage.Length; i++)
                     {
@@ -193,13 +211,26 @@ public class FighterController : MonoBehaviour
                     if (meterSystem.GetMeterNormalized() >= 0.20f)
                     {
                         isAttacking = true;
-                        GetComponent<Animator>().SetTrigger("specialPunch");
+                        GetComponent<Animator>().SetTrigger("specialWeak");
                         meterSystem.Spend(20);
-                        Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(specialPunchPos.position, new Vector2(specialPunchRangeX, specialPunchRangeY), 0, enemyFighter);
-                        for (int i = 0; i < enemiesToDamage.Length; i++)
+                        if (gameObject.tag == "Bella")
                         {
-                            enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(specialPunchDamage, startTimeBetweenSpecialPunch, isCrouching);
-                            StartCoroutine(playSpecialHitSound());
+                            if (EnemyToRight())
+                            {
+                                Instantiate(fireballPrefab, launchOffset.position, transform.rotation);
+                            }
+                            else
+                            {
+                                Instantiate(fireballPrefab, launchOffset.position, Quaternion.Euler(new Vector3(0, 180, 0)));
+                            }
+                        }
+                        else       //Ace special weak
+                        {
+                            Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(specialPunchPos.position, new Vector2(specialPunchRangeX, specialPunchRangeY), 0, enemyFighter);
+                            for (int i = 0; i < enemiesToDamage.Length; i++)
+                            {
+                                enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(specialPunchDamage, startTimeBetweenSpecialPunch, false);
+                            }
                         }
                     }
                     timeBetweenSpecialPunch = startTimeBetweenSpecialPunch;
@@ -212,17 +243,68 @@ public class FighterController : MonoBehaviour
     {
         if (gameController.movementAllowed && ctx.performed && isGrounded && stunTime <= 0)
         {
-            if (timeBetweenKick <= 0)
+            if (!specialActive)
             {
-                isAttacking = true;
-                GetComponent<Animator>().SetTrigger("standingKick");
-                Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(kickPos.position, new Vector2(kickRangeX, kickRangeY), 0, enemyFighter);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
+                if (timeBetweenKick <= 0)
                 {
-                    enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(kickDamage, startTimeBetweenKick, isCrouching);
-                    StartCoroutine(playKickSound());
+                    isAttacking = true;
+                    GetComponent<Animator>().SetTrigger("standingStrong");
+                    Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(kickPos.position, new Vector2(kickRangeX, kickRangeY), 0, enemyFighter);
+                    for (int i = 0; i < enemiesToDamage.Length; i++)
+                    {
+                        enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(kickDamage, startTimeBetweenKick, isCrouching);
+                        StartCoroutine(playKickSound());
+                    }
+                    timeBetweenKick = startTimeBetweenKick;
                 }
-                timeBetweenKick = startTimeBetweenKick;
+            }
+            else
+            {
+                if (gameObject.tag == "Bella")
+                {
+                    if (!isShoryu)
+                    {
+                        if (meterSystem.GetMeterNormalized() >= 0.20f)
+                        {
+                            meterSystem.Spend(20);
+                            isShoryu = true;
+                            if (EnemyToRight())
+                            {
+                                rb.AddForce(new Vector2(4, 7), ForceMode2D.Impulse);
+                            }
+                            else
+                            {
+                                rb.AddForce(new Vector2(-4, 7), ForceMode2D.Impulse);
+                            }
+                            isShoryu = true;
+                            GetComponent<Animator>().SetTrigger("specialStrong");
+
+                            Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(kickPos.position, new Vector2(kickRangeX, kickRangeY), 0, enemyFighter);
+                            for (int i = 0; i < enemiesToDamage.Length; i++)
+                            {
+                                enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(kickDamage, startTimeBetweenKick, false);
+                                StartCoroutine(playKickSound());
+                            }
+                        }
+                        timeBetweenSpecialKick = startTimeBetweenSpecialKick;
+                    }
+                }
+                else
+                {
+                    if (timeBetweenSpecialKick <= 0)
+                    {
+                        GetComponent<Animator>().SetTrigger("specialStrong");
+                        if (EnemyToRight())
+                        {
+                            Instantiate(poisonPrefab, poisonLocation.position, Quaternion.Euler(new Vector3(0, 180, 0)));
+                        }
+                        else
+                        {
+                            Instantiate(poisonPrefab, poisonLocation.position, transform.rotation);
+                        }
+                        timeBetweenSpecialKick = startTimeBetweenSpecialKick;
+                    }
+                }
             }
         }
     }
