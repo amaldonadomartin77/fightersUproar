@@ -79,6 +79,17 @@ public class GameController : MonoBehaviour {
 
         BeginRound();
     }
+    public void ESCButton()
+    {
+        StartCoroutine(LoadCharSelect(1f));
+    }
+
+    private IEnumerator LoadCharSelect(float time)
+    {
+        // audioSource.PlayOneShot(backSound);
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene("MainMenu");
+    }
 
     // Update is called once per frame
     void Update() {
@@ -447,4 +458,5 @@ public class GameController : MonoBehaviour {
         yield return StartCoroutine(ScreenFadeOut());
         SceneManager.LoadScene("MainMenu");
     }
+
 }
