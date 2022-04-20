@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class SelectorManager : MonoBehaviour
@@ -10,18 +11,18 @@ public class SelectorManager : MonoBehaviour
     //serializedField the gameobject and to create a 2*2 array.
     //followed by the online tutorial
 
-    public Text playerTitleName;
+    public TextMeshProUGUI playerTitleName;
 
-    public Text playerInfo_0_Text;
-    public Text playerInfo_1_Text;
-    public Text playerInfo_2_Text;
+    public TextMeshProUGUI playerInfo_0_Text;
+    public TextMeshProUGUI playerInfo_1_Text;
+    public TextMeshProUGUI playerInfo_2_Text;
 
-    public Text playerSkill_1_0_Text;
-    public Text playerSkill_1_1_Text;
-    public Text playerSkill_2_0_Text;
-    public Text playerSkill_2_1_Text;
-    public Text playerSkill_3_0_Text;
-    public Text playerSkill_3_1_Text;
+    public TextMeshProUGUI playerSkill_1_0_Text;
+    public TextMeshProUGUI playerSkill_1_1_Text;
+    public TextMeshProUGUI playerSkill_2_0_Text;
+    public TextMeshProUGUI playerSkill_2_1_Text;
+    public TextMeshProUGUI playerSkill_3_0_Text;
+    public TextMeshProUGUI playerSkill_3_1_Text;
 
     public Button char1Btn;
     public Button char2Btn;
@@ -29,7 +30,7 @@ public class SelectorManager : MonoBehaviour
     public Button char4Btn;
     public Button selectBtn;
 
-    int userid;
+    public int userid;
     bool isOne;
 
 
@@ -43,19 +44,19 @@ public class SelectorManager : MonoBehaviour
     public AudioClip backSound;
     public AudioClip confirmSound;
 
-    string[] characterNameList = { "Ace", "Bella", "Isaac", "Katsu" };
+    string[] characterNameList = { "ACE", "BELLA", "ISAAC", "KATSU" };
 
     // Dictionary<string,string> char1_info = new Dictionary<string, string>();
     // Dictionary<string,string> char2_info = new Dictionary<string, string>();
 
-    string[] char1_info = { "CHARACTER 1", "Ace", 
-                            "-Collecting data for the perfect fighter\n-Obsessed with finding breakthroughs\n-Modified body" };
+    string[] char1_info = { "CHARACTER 1", "ACE",
+                            "A lone wolf who loves no one but his bike. A mercenary who wields a rifle and a knife for close attacks. Keeping his enemies at a distance is his forte." };
     string[] char1_skill1 = { "Slice", "A quick knife slice that deals heavy damage" };
     string[] char1_skill2 = { "Laser Shot", "A powerful shot that cuts the across the arena" };
     string[] char1_skill3 = { "Poison Nade", "An AOE ground attack that spews a puddle of poison that can inflict damage to the opponent" };
 
-    string[] char2_info = { "CHARACTER 2", "Bella", 
-                            "Loves no one but his bike, lone wolf.\n-Wields a single rifle, knife for punch.\n-Mercenary" };
+    string[] char2_info = { "CHARACTER 2", "BELLA", 
+                            "A fierce young woman determined to prove her strength.  Prefers to crush her opponents with her fists as opposed to shooting.  Enjoys keeping things up close and personal." };
     string[] char2_skill1 = { "Punch", " A signature punch move that deals heavy damage" };
     string[] char2_skill2 = { "Rocket Punch", "A special punch move that launches a projectile at the opponent" };
     string[] char2_skill3 = { "Dragon Punch", "Bella’s signature rising attack move that delivers a striking uppercut against the opponent" };
@@ -83,6 +84,11 @@ public class SelectorManager : MonoBehaviour
     {
         userid = 0;
         isOne = true;
+
+        playerTitleName.text = "PLAYER 1";
+        playerTitleName.color = new Color(0.482f, 0.573f, 0.937f, 1.0f);
+        playerInfo_0_Text.color = new Color(0.482f, 0.573f, 0.937f, 1.0f);
+        playerInfo_1_Text.color = new Color(0.482f, 0.573f, 0.937f, 1.0f);
 
         cols = row1.Length;         //4
         // print("cols: " + cols);
@@ -113,6 +119,7 @@ public class SelectorManager : MonoBehaviour
 
     public void ClickChar1()
     {
+        userid = 0;
         char1Btn.gameObject.SetActive(true);
         char2Btn.gameObject.SetActive(true);
         char3Btn.gameObject.SetActive(true);
@@ -126,7 +133,6 @@ public class SelectorManager : MonoBehaviour
         playerSkill_2_1_Text.text = char1_skill2[1];
         playerSkill_3_0_Text.text = char1_skill3[0];
         playerSkill_3_1_Text.text = char1_skill3[1];
-        userid = 0;
         audioSource.PlayOneShot(cursorSound);
         selectBtn.gameObject.SetActive(true);
         char1Btn.gameObject.SetActive(false);
@@ -135,6 +141,7 @@ public class SelectorManager : MonoBehaviour
 
     public void ClickChar2()
     {
+        userid = 1;
         char1Btn.gameObject.SetActive(true);
         char2Btn.gameObject.SetActive(true);
         char3Btn.gameObject.SetActive(true);
@@ -148,7 +155,6 @@ public class SelectorManager : MonoBehaviour
         playerSkill_2_1_Text.text = char2_skill2[1];
         playerSkill_3_0_Text.text = char2_skill3[0];
         playerSkill_3_1_Text.text = char2_skill3[1];
-        userid = 1;
         audioSource.PlayOneShot(cursorSound);
         selectBtn.gameObject.SetActive(true);
         char2Btn.gameObject.SetActive(false);
@@ -156,43 +162,43 @@ public class SelectorManager : MonoBehaviour
 
     public void ClickChar3()
     {
+        userid = 2;
         char1Btn.gameObject.SetActive(true);
         char2Btn.gameObject.SetActive(true);
         char3Btn.gameObject.SetActive(true);
         char4Btn.gameObject.SetActive(true);
-        playerInfo_0_Text.text = "";
-        playerInfo_1_Text.text = "Comming Soon";
-        playerInfo_2_Text.text = "";
-        playerSkill_1_0_Text.text = "";
-        playerSkill_1_1_Text.text = "Comming Soon";
-        playerSkill_2_0_Text.text = "";
-        playerSkill_2_1_Text.text = "Comming Soon";
-        playerSkill_3_0_Text.text = "";
-        playerSkill_3_1_Text.text = "Comming Soon";
-        userid = 3;
+        playerInfo_0_Text.text = "CHARACTER 3";
+        playerInfo_1_Text.text = "ISAAC";
+        playerInfo_2_Text.text = "COMING SOON";
+        playerSkill_1_0_Text.text = "N/A";
+        playerSkill_1_1_Text.text = "Character is coming soon.";
+        playerSkill_2_0_Text.text = "N/A";
+        playerSkill_2_1_Text.text = "Character is coming soon.";
+        playerSkill_3_0_Text.text = "N/A";
+        playerSkill_3_1_Text.text = "Character is coming soon.";
         audioSource.PlayOneShot(cursorSound);
-        selectBtn.gameObject.SetActive(false);
+        selectBtn.interactable = false;
         char3Btn.gameObject.SetActive(false);
     }
 
     public void ClickChar4()
     {
+        userid = 3;
         char1Btn.gameObject.SetActive(true);
         char2Btn.gameObject.SetActive(true);
         char3Btn.gameObject.SetActive(true);
         char4Btn.gameObject.SetActive(true);
-        playerInfo_0_Text.text = "";
-        playerInfo_1_Text.text = "Comming Soon";
-        playerInfo_2_Text.text = "";
-        playerSkill_1_0_Text.text = "";
-        playerSkill_1_1_Text.text = "Comming Soon";
-        playerSkill_2_0_Text.text = "";
-        playerSkill_2_1_Text.text = "Comming Soon";
-        playerSkill_3_0_Text.text = "";
-        playerSkill_3_1_Text.text = "Comming Soon";
-        userid = 3;
+        playerInfo_0_Text.text = "CHARACTER 4";
+        playerInfo_1_Text.text = "KATSU";
+        playerInfo_2_Text.text = "COMING SOON";
+        playerSkill_1_0_Text.text = "N/A";
+        playerSkill_1_1_Text.text = "Character is coming soon.";
+        playerSkill_2_0_Text.text = "N/A";
+        playerSkill_2_1_Text.text = "Character is coming soon.";
+        playerSkill_3_0_Text.text = "N/A";
+        playerSkill_3_1_Text.text = "Character is coming soon.";
         audioSource.PlayOneShot(cursorSound);
-        selectBtn.gameObject.SetActive(false);
+        selectBtn.interactable = false;
         char4Btn.gameObject.SetActive(false);
     }
 
@@ -336,13 +342,18 @@ public class SelectorManager : MonoBehaviour
     {
         if (userid == 2 || userid == 3)
         {
+            audioSource.PlayOneShot(backSound);
+            ClickChar1();
             return;
         }
         if (isOne == true)
         {
             Settings.s.playerOneCharacter = userid;
             isOne = false;
-            playerTitleName.text = "Player 2";
+            playerTitleName.text = "PLAYER 2";
+            playerTitleName.color = new Color(0.886f, 0.353f, 0.247f, 1.0f);
+            playerInfo_0_Text.color = new Color(0.886f, 0.353f, 0.247f, 1.0f);
+            playerInfo_1_Text.color = new Color(0.886f, 0.353f, 0.247f, 1.0f);
             char1Btn.Select();
             ClickChar1();
         }
@@ -355,7 +366,18 @@ public class SelectorManager : MonoBehaviour
 
     public void ClickBackBtn()
     {
-        StartCoroutine(LoadCharSelect(1f));
+        if (isOne == true)
+            StartCoroutine(LoadCharSelect(1f));
+        else
+        {
+            audioSource.PlayOneShot(backSound);
+            playerTitleName.text = "PLAYER 1";
+            playerTitleName.color = new Color(0.482f, 0.573f, 0.937f, 1.0f);
+            playerInfo_0_Text.color = new Color(0.482f, 0.573f, 0.937f, 1.0f);
+            playerInfo_1_Text.color = new Color(0.482f, 0.573f, 0.937f, 1.0f);
+            isOne = true;
+            ClickChar1();
+        }
     }
 
     private IEnumerator LoadCharSelect(float time)
