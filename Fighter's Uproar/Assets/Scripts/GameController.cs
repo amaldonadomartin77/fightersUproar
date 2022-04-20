@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour {
 	public GameObject playerOne, playerTwo, victoryMenu;
     public Sprite aceHead, bellaHead;
     public bool movementAllowed;
+    public GameObject stage1;
+    public GameObject stage2;
 
     private int maxWins;
     private GameObject p1UI, p2UI, uiText, fadeImage;
@@ -32,7 +34,11 @@ public class GameController : MonoBehaviour {
         timer = GameObject.Find("TimeRemaining").GetComponent<Timer>();
         movementAllowed = false;
         fadeImage.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+
+
+     
     }
+
 
     private void Start()
     {
@@ -76,6 +82,8 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        //print(StageSelectManager.stageID);
+
         if (CheckForKO(playerTwo))
         {
             StartCoroutine(HandleVictory(false, 1));
@@ -98,6 +106,16 @@ public class GameController : MonoBehaviour {
                 StartCoroutine(HandleVictory(true, 3));
             timer.ResetTimer();
             timer.ForceDisplay(true);
+        }
+
+        if(StageSelectManager.stageID == 1){
+            stage1.gameObject.SetActive(true);
+            stage2.gameObject.SetActive(false);
+        }
+        else{
+        stage1.gameObject.SetActive(false);
+        stage2.gameObject.SetActive(true);
+    
         }
     }
 

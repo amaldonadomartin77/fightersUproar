@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2543,6 +2543,8 @@ MonoBehaviour:
   aceHead: {fileID: 21300000, guid: e2c9fc196851c1b4796c976df458891a, type: 3}
   bellaHead: {fileID: 21300000, guid: 4d2c627b6efe8b949ae528a44063d10a, type: 3}
   movementAllowed: 1
+  stage1: {fileID: 1308812224}
+  stage2: {fileID: 1786010760}
 --- !u!4 &666488076
 Transform:
   m_ObjectHideFlags: 0
@@ -4683,7 +4685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1308812225
 Transform:
   m_ObjectHideFlags: 0
@@ -5945,7 +5947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1786010761
 Transform:
   m_ObjectHideFlags: 0

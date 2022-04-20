@@ -16,6 +16,8 @@ public class StageSelectManager : MonoBehaviour
     public Button stage2Btn;
     public Button selectBtn;
 
+    
+
     public AudioSource audioSource;
     public AudioClip cursorSound;
     public AudioClip backSound;
