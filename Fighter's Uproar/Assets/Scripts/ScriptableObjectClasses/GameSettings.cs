@@ -12,4 +12,8 @@ public class GameSettings : ScriptableObject
     [Header("Audio")]
     public bool musicEnabled;
     public bool soundEnabled;
+
+    [Header("Characters")]
+    public string playerOneCharacter;
+    public string playerTwoCharacter;
 }
