@@ -16,8 +16,8 @@ public class HealthSystem : MonoBehaviour
     {
         ResetHealth();
     }
-
-    public void Damage(int amount)
+    
+    public void Damage(float amount)
     {
         healthAmount -= amount;
         if (healthAmount < 0)
