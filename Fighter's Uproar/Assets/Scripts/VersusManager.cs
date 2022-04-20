@@ -12,8 +12,8 @@ public class VersusManager : MonoBehaviour
     Image imageSprite1;
     Image imageSprite2;
 
-    int uid1 = SelectorManager.user1;
-    int uid2 = SelectorManager.user2;
+    private int uid1 = 1;
+    private int uid2 = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +23,6 @@ public class VersusManager : MonoBehaviour
         imageSprite2.sprite = sprites [uid2];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void ESCButton()
     {
         StartCoroutine(LoadCharSelect(1f));

@@ -9,9 +9,10 @@ public class GameController : MonoBehaviour {
 
     // Take in game objects
 	public GameObject playerOne, playerTwo, victoryMenu;
+    public Sprite aceHead, bellaHead;
     public bool movementAllowed;
 
-    private int maxWins, maxTime;
+    private int maxWins;
     private GameObject p1UI, p2UI, uiText, fadeImage;
     private Timer timer;
     private Vector3 initialP1Pos, initialP2Pos;
@@ -35,7 +36,6 @@ public class GameController : MonoBehaviour {
 
     private void Start()
     {
-        maxTime = Settings.s.roundTime;
         switch (Settings.s.numberOfRounds)
         {
             case 1:
@@ -48,6 +48,29 @@ public class GameController : MonoBehaviour {
                 maxWins = 3;
                 break;
         }
+
+        if (Settings.s.playerOneCharacter == 0)
+        {
+            p1UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "ACE";
+            p1UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = aceHead;
+        }
+        else
+        {
+            p1UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "BELLA";
+            p1UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = bellaHead;
+        }
+
+        if (Settings.s.playerOneCharacter == 0)
+        {
+            p2UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "ACE";
+            p2UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = aceHead;
+        }
+        else
+        {
+            p2UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "BELLA";
+            p2UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = bellaHead;
+        }
+
         BeginRound();
     }
 

@@ -29,9 +29,6 @@ public class SelectorManager : MonoBehaviour
     public Button char4Btn;
     public Button selectBtn;
 
-
-    public static int user1;
-    public static int user2;
     int userid;
     bool isOne;
 
@@ -84,8 +81,6 @@ public class SelectorManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        user1 = 0;
-        user2 = 0;
         userid = 0;
         isOne = true;
 
@@ -345,7 +340,7 @@ public class SelectorManager : MonoBehaviour
         }
         if (isOne == true)
         {
-            user1 = userid;
+            Settings.s.playerOneCharacter = userid;
             isOne = false;
             playerTitleName.text = "Player 2";
             char1Btn.Select();
@@ -353,7 +348,7 @@ public class SelectorManager : MonoBehaviour
         }
         else
         {
-            user2 = userid;
+            Settings.s.playerTwoCharacter = userid;
             StartCoroutine(LoadGameplay(1f));
         }
     }
