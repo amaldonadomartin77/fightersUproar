@@ -134,8 +134,9 @@ public class SelectorManager : MonoBehaviour
         playerSkill_3_0_Text.text = char1_skill3[0];
         playerSkill_3_1_Text.text = char1_skill3[1];
         audioSource.PlayOneShot(cursorSound);
-        selectBtn.gameObject.SetActive(true);
+       //selectBtn.gameObject.SetActive(true);
         char1Btn.gameObject.SetActive(false);
+        selectBtn.interactable = true;
     }
 
 
@@ -156,8 +157,9 @@ public class SelectorManager : MonoBehaviour
         playerSkill_3_0_Text.text = char2_skill3[0];
         playerSkill_3_1_Text.text = char2_skill3[1];
         audioSource.PlayOneShot(cursorSound);
-        selectBtn.gameObject.SetActive(true);
+        //selectBtn.gameObject.SetActive(true);
         char2Btn.gameObject.SetActive(false);
+        selectBtn.interactable = true;
     }
 
     public void ClickChar3()

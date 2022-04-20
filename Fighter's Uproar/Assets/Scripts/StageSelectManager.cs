@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class StageSelectManager : MonoBehaviour
 {
 
-    public Text stageInfo_0_Text;
-    public Text stageInfo_1_Text;
-    public Text stageInfo_2_Text;
+    public TextMeshProUGUI stageInfo_0_Text;
+    public TextMeshProUGUI stageInfo_1_Text;
+    public TextMeshProUGUI stageInfo_2_Text;
 
     public Button stage1Btn;
     public Button stage2Btn;
@@ -24,12 +25,12 @@ public class StageSelectManager : MonoBehaviour
 
 
     string[] stage1_info = { "STAGE 1", 
-                            "ROCK",
-                            "-Many many rock\n-Many many many rock\n-Many many many many rock" };
+                            "Forgotten city",
+                            "No one remembers how long it has been since that war. No one remembers how prosperous the city used to be. The city buried by wind and sand can no longer see its former glory. Only a few castles can attest to the fact that this place was once a paradise." };
 
     string[] stage2_info = { "STAGE 2", 
-                            "WATER",
-                            "-Many many water\n-Many many many water\n-Many many many many water" };
+                            "Forgotten castle",
+                            "Since the interior of the castle is mainly constructed of stone bricks and tiles, the walls and floors have not been damaged too much. It's hard to believe that this castle was also a pre-war product if it weren't for a lot of dust. But the treasure in the castle has disappeared." };
 
 
     void Start()
