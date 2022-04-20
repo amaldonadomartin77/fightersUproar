@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class VersusManager : MonoBehaviour
 {
@@ -26,5 +27,16 @@ public class VersusManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void ESCButton()
+    {
+        StartCoroutine(LoadCharSelect(1f));
+    }
+
+    private IEnumerator LoadCharSelect(float time)
+    {
+        // audioSource.PlayOneShot(backSound);
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene("MainMenu");
     }
 }
