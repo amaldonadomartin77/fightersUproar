@@ -1532,6 +1532,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346397065}
   m_CullTransparentMesh: 1
+--- !u!1 &380078469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380078470}
+  m_Layer: 6
+  m_Name: PoisonLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &380078470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380078469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.53, y: 0.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1196617847}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &414545304
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,7 +3272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999691182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 0.79, z: 0}
+  m_LocalPosition: {x: -0.11, y: 0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1839732896}
@@ -3957,6 +3987,7 @@ Transform:
   - {fileID: 942287598}
   - {fileID: 1333098223}
   - {fileID: 2145298879}
+  - {fileID: 380078470}
   m_Father: {fileID: 1675239735}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4198,14 +4229,16 @@ MonoBehaviour:
   kickDamage: 8
   startTimeBetweenKick: 0.583
   specialPunchPos: {fileID: 2145298879}
-  specialPunchRangeX: 12
-  specialPunchRangeY: 13
+  specialPunchRangeX: 1000
+  specialPunchRangeY: 1
   specialPunchDamage: 15
   startTimeBetweenSpecialPunch: 0.667
   fireballPrefab: {fileID: 0}
-  poisonPrefab: {fileID: 0}
+  poisonPrefab: {fileID: 2299371605393548089, guid: e749223edadb3c04f943401f63cba0e4, type: 3}
+  beamPrefab: {fileID: -2416351109224971656, guid: a3ee4c0fd1700a5479c5d96e2eb69932, type: 3}
   launchOffset: {fileID: 0}
-  poisonLocation: {fileID: 0}
+  beamOffset: {fileID: 2145298879}
+  poisonLocation: {fileID: 380078470}
   specialKickRangeX: 0
   specialKickRangeY: 0
   specialKickDamage: 0
@@ -6008,7 +6041,9 @@ MonoBehaviour:
   startTimeBetweenSpecialPunch: 0.667
   fireballPrefab: {fileID: 7810173683842942951, guid: a3a5194a73c2f804588303d838e3cd0f, type: 3}
   poisonPrefab: {fileID: 0}
+  beamPrefab: {fileID: 0}
   launchOffset: {fileID: 999691183}
+  beamOffset: {fileID: 0}
   poisonLocation: {fileID: 0}
   specialKickRangeX: 0
   specialKickRangeY: 0
@@ -6968,7 +7003,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2145298879}
   m_Layer: 6
-  m_Name: SpecialPunchHitbox
+  m_Name: SpecialPunchLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6982,7 +7017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145298878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 26.19, y: 1.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1196617847}

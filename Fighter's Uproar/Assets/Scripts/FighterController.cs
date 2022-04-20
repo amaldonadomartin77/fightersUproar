@@ -48,7 +48,9 @@ public class FighterController : MonoBehaviour
 
     public Fireball fireballPrefab;
     public Poison poisonPrefab;
+    public Beam beamPrefab;
     public Transform launchOffset;
+    public Transform beamOffset;
     public Transform poisonLocation;
 
     public float specialKickRangeX;
@@ -226,16 +228,31 @@ public class FighterController : MonoBehaviour
                         }
                         else       //Ace special weak
                         {
-                            Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(specialPunchPos.position, new Vector2(specialPunchRangeX, specialPunchRangeY), 0, enemyFighter);
-                            for (int i = 0; i < enemiesToDamage.Length; i++)
-                            {
-                                enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(specialPunchDamage, startTimeBetweenSpecialPunch, false);
-                            }
+                            StartCoroutine(Beam());
+                            
                         }
                     }
                     timeBetweenSpecialPunch = startTimeBetweenSpecialPunch;
                 }
             }
+        }
+    }
+
+    IEnumerator Beam()
+    {
+        yield return new WaitForSeconds(0.9f);  
+        if (EnemyToRight())
+        {
+            Instantiate(beamPrefab, beamOffset.position, transform.rotation);
+        }
+        else
+        {
+            Instantiate(beamPrefab, beamOffset.position, Quaternion.Euler(new Vector3(0, 180, 0)));
+        }
+        Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(specialPunchPos.position, new Vector2(specialPunchRangeX, specialPunchRangeY), 0, enemyFighter);
+        for (int i = 0; i < enemiesToDamage.Length; i++)
+        {
+            enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(specialPunchDamage, startTimeBetweenSpecialPunch, false);
         }
     }
 
@@ -325,7 +342,7 @@ public class FighterController : MonoBehaviour
         Gizmos.DrawWireCube(specialPunchPos.position, new Vector3(specialPunchRangeX, specialPunchRangeY, 1));
     }
 
-    public void TakeDamage(int damage, float stunValue, bool crouching)
+    public void TakeDamage(float damage, float stunValue, bool crouching)
     {
         if (((EnemyToRight() && movingNeg) || (!EnemyToRight() && movingPos)) && ((isCrouching && crouching) || (!isCrouching && !crouching)))
             Block(0, stunValue);
@@ -336,6 +353,11 @@ public class FighterController : MonoBehaviour
             healthSystem.Damage(damage);
             stunTime = stunValue + 0.25f;
         }
+    }
+
+    public void TakeDamageNoHitStun(float damage)
+    {
+        healthSystem.Damage(damage);
     }
 
     private void Block(int damage, float stunValue)
