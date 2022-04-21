@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4053,7 +4053,7 @@ Animator:
   m_GameObject: {fileID: 1196617843}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 97ecc2a898b4b484c960fe57abfbeaa4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7d7b6b73518b30f478318e8e72bf9ae3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4351,6 +4351,7 @@ MonoBehaviour:
   speed: 8
   jumpForce: 15
   isGrounded: 1
+  hasDied: 0
   player: {fileID: 1196617843}
   target: {fileID: 1839732891}
   enemyFighter:
@@ -4368,6 +4369,16 @@ MonoBehaviour:
   kickRangeY: 4
   kickDamage: 8
   startTimeBetweenKick: 0.583
+  crouchingPunchPos: {fileID: 942287598}
+  crouchingPunchRangeX: 5.3
+  crouchingPunchRangeY: 4
+  crouchingPunchDamage: 8
+  startTimeBetweenCrouchingPunch: 0.583
+  crouchingKickPos: {fileID: 1333098223}
+  crouchingKickRangeX: 5.3
+  crouchingKickRangeY: 4
+  crouchingKickDamage: 8
+  startTimeBetweenCrouchingKick: 0.583
   specialPunchPos: {fileID: 2145298879}
   specialPunchRangeX: 1000
   specialPunchRangeY: 1
@@ -4379,6 +4390,7 @@ MonoBehaviour:
   launchOffset: {fileID: 0}
   beamOffset: {fileID: 2145298879}
   poisonLocation: {fileID: 380078470}
+  specialKickPos: {fileID: 0}
   specialKickRangeX: 0
   specialKickRangeY: 0
   specialKickDamage: 0
@@ -6184,7 +6196,7 @@ Animator:
   m_GameObject: {fileID: 1839732891}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1b7167ac59c80204cb64ad684cad3969, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1250eff1afa1230409944a599aec8cce, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6465,6 +6477,7 @@ MonoBehaviour:
   speed: 8
   jumpForce: 15
   isGrounded: 1
+  hasDied: 0
   player: {fileID: 1839732891}
   target: {fileID: 1196617843}
   enemyFighter:
@@ -6482,6 +6495,16 @@ MonoBehaviour:
   kickRangeY: 4
   kickDamage: 8
   startTimeBetweenKick: 0.583
+  crouchingPunchPos: {fileID: 0}
+  crouchingPunchRangeX: 5.3
+  crouchingPunchRangeY: 4
+  crouchingPunchDamage: 8
+  startTimeBetweenCrouchingPunch: 0.583
+  crouchingKickPos: {fileID: 0}
+  crouchingKickRangeX: 5.3
+  crouchingKickRangeY: 4
+  crouchingKickDamage: 8
+  startTimeBetweenCrouchingKick: 0.583
   specialPunchPos: {fileID: 999691183}
   specialPunchRangeX: 12
   specialPunchRangeY: 13
@@ -6493,9 +6516,10 @@ MonoBehaviour:
   launchOffset: {fileID: 999691183}
   beamOffset: {fileID: 0}
   poisonLocation: {fileID: 0}
-  specialKickRangeX: 0
-  specialKickRangeY: 0
-  specialKickDamage: 0
+  specialKickPos: {fileID: 999691183}
+  specialKickRangeX: 8
+  specialKickRangeY: 8
+  specialKickDamage: 15
   startTimeBetweenSpecialKick: 0
   audioSource: {fileID: 338086481}
   footstepSound: {fileID: 0}
