@@ -24,6 +24,9 @@ public class SelectorManager : MonoBehaviour
     public TextMeshProUGUI playerSkill_3_0_Text;
     public TextMeshProUGUI playerSkill_3_1_Text;
 
+    public Image strongAtk, specialOne, specialTwo;
+    public Sprite aceStrong, aceSpecial1, aceSpecial2, bellaStrong, bellaSpecial1, bellaSpecial2, none;
+
     public Button char1Btn;
     public Button char2Btn;
     public Button char3Btn;
@@ -51,15 +54,15 @@ public class SelectorManager : MonoBehaviour
 
     string[] char1_info = { "CHARACTER 1", "ACE",
                             "A lone wolf who loves no one but his bike. A mercenary who wields a rifle and a knife for close attacks. Keeping his enemies at a distance is his forte." };
-    string[] char1_skill1 = { "Slice", "A quick knife slice that deals heavy damage" };
-    string[] char1_skill2 = { "Laser Shot", "A powerful shot that cuts the across the arena" };
-    string[] char1_skill3 = { "Poison Nade", "An AOE ground attack that spews a puddle of poison that can inflict damage to the opponent" };
+    string[] char1_skill1 = { "SLICE", "Strong attack.\nA quick knife slice that deals heavy damage." };
+    string[] char1_skill2 = { "LASER SHOT", "Special attack 1.\nA powerful shot from Ace's rifle that cuts across the entire arena." };
+    string[] char1_skill3 = { "POISON NADE", "Special attack 2.\nAn AOE ground attack that has Ace toss a bottle of poison to leave a pool of damaging liquid on the floor." };
 
     string[] char2_info = { "CHARACTER 2", "BELLA", 
-                            "A fierce young woman determined to prove her strength.  Prefers to crush her opponents with her fists as opposed to shooting.  Enjoys keeping things up close and personal." };
-    string[] char2_skill1 = { "Punch", " A signature punch move that deals heavy damage" };
-    string[] char2_skill2 = { "Rocket Punch", "A special punch move that launches a projectile at the opponent" };
-    string[] char2_skill3 = { "Dragon Punch", "Bella’s signature rising attack move that delivers a striking uppercut against the opponent" };
+                            "A fierce young woman determined to prove her strength. Prefers to crush her opponents with her fists as opposed to shooting. Enjoys keeping things up close and personal." };
+    string[] char2_skill1 = { "POWER PUNCH", "Strong attack.\nPunch with the extra force that Bella's gauntlets produce." };
+    string[] char2_skill2 = { "HEAT WAVE", "Special attack 1.\nCharge up the gauntlets and launch a ball of fire straight ahead. It is a slow moving projectile." };
+    string[] char2_skill3 = { "DRAGON UPPER", "Special attack 2.\nPerform a devastating rising uppercut that deals damage on the way up. Useful as an anti-air." };
 
     string[,] characterSkillList = { { "Skill 1 descrption will be here: ----", "Skill 2 descrption will be here:------------------", "Skill 2 descrption will be here:-------------------" }, { "Skill 1 descrption will be here:-----------------", "Skill 2 descrption will be here", "Skill 3 descrption will be here" },
                                         { "Skill 1 descrption will be here", "Skill 2 descrption will be here", "CCA" }, { "AACC", "BBAA", "CCAA" } };
@@ -133,6 +136,9 @@ public class SelectorManager : MonoBehaviour
         playerSkill_2_1_Text.text = char1_skill2[1];
         playerSkill_3_0_Text.text = char1_skill3[0];
         playerSkill_3_1_Text.text = char1_skill3[1];
+        strongAtk.sprite = aceStrong;
+        specialOne.sprite = aceSpecial1;
+        specialTwo.sprite = aceSpecial2;
         audioSource.PlayOneShot(cursorSound);
        //selectBtn.gameObject.SetActive(true);
         char1Btn.gameObject.SetActive(false);
@@ -156,6 +162,9 @@ public class SelectorManager : MonoBehaviour
         playerSkill_2_1_Text.text = char2_skill2[1];
         playerSkill_3_0_Text.text = char2_skill3[0];
         playerSkill_3_1_Text.text = char2_skill3[1];
+        strongAtk.sprite = bellaStrong;
+        specialOne.sprite = bellaSpecial1;
+        specialTwo.sprite = bellaSpecial2;
         audioSource.PlayOneShot(cursorSound);
         //selectBtn.gameObject.SetActive(true);
         char2Btn.gameObject.SetActive(false);
@@ -178,6 +187,9 @@ public class SelectorManager : MonoBehaviour
         playerSkill_2_1_Text.text = "Character is coming soon.";
         playerSkill_3_0_Text.text = "N/A";
         playerSkill_3_1_Text.text = "Character is coming soon.";
+        strongAtk.sprite = none;
+        specialOne.sprite = none;
+        specialTwo.sprite = none;
         audioSource.PlayOneShot(cursorSound);
         selectBtn.interactable = false;
         char3Btn.gameObject.SetActive(false);
@@ -199,6 +211,9 @@ public class SelectorManager : MonoBehaviour
         playerSkill_2_1_Text.text = "Character is coming soon.";
         playerSkill_3_0_Text.text = "N/A";
         playerSkill_3_1_Text.text = "Character is coming soon.";
+        strongAtk.sprite = none;
+        specialOne.sprite = none;
+        specialTwo.sprite = none;
         audioSource.PlayOneShot(cursorSound);
         selectBtn.interactable = false;
         char4Btn.gameObject.SetActive(false);

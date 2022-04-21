@@ -3164,6 +3164,15 @@ MonoBehaviour:
   playerSkill_2_1_Text: {fileID: 2102722496}
   playerSkill_3_0_Text: {fileID: 682237411}
   playerSkill_3_1_Text: {fileID: 246727256}
+  strongAtk: {fileID: 652378377}
+  specialOne: {fileID: 362103063}
+  specialTwo: {fileID: 965088886}
+  aceStrong: {fileID: 21300000, guid: e694e1e9c54e186418f4f63e467eba86, type: 3}
+  aceSpecial1: {fileID: 21300000, guid: 82a8450457d095f489c170d0af2ecc7b, type: 3}
+  aceSpecial2: {fileID: 21300000, guid: 1b00f0135e72ace42a0d62908f86c309, type: 3}
+  bellaStrong: {fileID: 21300000, guid: ae816718d16fc144285e516cd95e8d38, type: 3}
+  bellaSpecial1: {fileID: 21300000, guid: 11a13e316ac0987449a5e1e7c90b6c26, type: 3}
+  bellaSpecial2: {fileID: 21300000, guid: 32279bc01a7ab014a8c2a93713508670, type: 3}
   char1Btn: {fileID: 688035282}
   char2Btn: {fileID: 1259362057}
   char3Btn: {fileID: 1416426396}

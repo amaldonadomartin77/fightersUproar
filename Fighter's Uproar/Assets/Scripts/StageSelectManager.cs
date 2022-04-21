@@ -27,11 +27,11 @@ public class StageSelectManager : MonoBehaviour
 
 
     string[] stage1_info = { "STAGE 1", 
-                            "Forgotten city",
+                            "FORGOTTEN CITY",
                             "No one remembers how long it has been since that war. No one remembers how prosperous the city used to be. The city buried by wind and sand can no longer see its former glory. Only a few castles can attest to the fact that this place was once a paradise." };
 
     string[] stage2_info = { "STAGE 2", 
-                            "Forgotten castle",
+                            "FORGOTTEN CASTLE",
                             "Since the interior of the castle is mainly constructed of stone bricks and tiles, the walls and floors have not been damaged too much. It's hard to believe that this castle was also a pre-war product if it weren't for a lot of dust. But the treasure in the castle has disappeared." };
 
 
@@ -85,7 +85,7 @@ public class StageSelectManager : MonoBehaviour
     {
         audioSource.PlayOneShot(backSound);
         yield return new WaitForSeconds(time);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("LevelSelectScene");
     }
 
     private IEnumerator LoadGameplay(float time)
