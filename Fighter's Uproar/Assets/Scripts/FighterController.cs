@@ -396,7 +396,12 @@ public class FighterController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(punchPos.position, new Vector3(punchRangeX, punchRangeY, 1));
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(specialPunchPos.position, new Vector3(specialPunchRangeX, specialPunchRangeY, 1));
+        Gizmos.DrawWireCube(kickPos.position, new Vector3(kickRangeX, kickRangeY, 1));
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(crouchingPunchPos.position, new Vector3(crouchingPunchRangeX, crouchingPunchRangeY, 1));
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireCube(kickPos.position, new Vector3(crouchingKickRangeX, crouchingKickRangeY, 1));
+
     }
 
     public void TakeDamage(float damage, float stunValue, bool crouching)

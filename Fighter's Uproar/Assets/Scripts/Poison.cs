@@ -7,7 +7,7 @@ public class Poison : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Poison : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("In poison");
-        if (collision.gameObject.tag == "Bella")
+        if (collision.gameObject.transform == gameObject.transform.parent)
         {
             collision.gameObject.GetComponent<FighterController>().TakeDamageNoHitStun(0.1f);
         }
