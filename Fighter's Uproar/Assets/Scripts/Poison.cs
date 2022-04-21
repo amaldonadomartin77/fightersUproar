@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Poison : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioClip glass, bubbling;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        source = GameObject.Find("soundSource").GetComponent<AudioSource>();
+        glass = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/poisonthrow.ogg", typeof(AudioClip));
+        bubbling = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/poisonbubbling.ogg", typeof(AudioClip));
+        source.PlayOneShot(glass);
+        source.PlayOneShot(bubbling);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Invoke("Disappear", 10);
+        Invoke("Disappear", 7.5f);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
