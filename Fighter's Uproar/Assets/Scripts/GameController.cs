@@ -65,13 +65,13 @@ public class GameController : MonoBehaviour {
 
         if (Settings.s.playerTwoCharacter == 0)
         {
-            p2UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "BELLA";
-            p2UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = bellaHead;
+            p2UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "ACE";
+            p2UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = aceHead;
         }
         else
         {
-            p2UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "ACE";
-            p2UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = aceHead;
+            p2UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "BELLA";
+            p2UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = bellaHead;
         }
 
         BeginRound();
