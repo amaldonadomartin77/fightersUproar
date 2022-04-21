@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d594b84b11495294d8dd310fdfba5f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  glass: {fileID: 8300000, guid: 578a046de8f902241a2bae7bfb49f750, type: 3}
+  bubbling: {fileID: 8300000, guid: 4b97f11d7adc1e64482fe444a3fe6f67, type: 3}
 --- !u!50 &306557868435551360
 Rigidbody2D:
   serializedVersion: 4

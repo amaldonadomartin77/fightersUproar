@@ -12,8 +12,6 @@ public class Poison : MonoBehaviour
     void Start()
     {
         source = GameObject.Find("soundSource").GetComponent<AudioSource>();
-        glass = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/poisonthrow.ogg", typeof(AudioClip));
-        bubbling = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/poisonbubbling.ogg", typeof(AudioClip));
         source.PlayOneShot(glass);
         source.PlayOneShot(bubbling);
     }

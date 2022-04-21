@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4844,6 +4844,12 @@ MonoBehaviour:
   specialKickDamage: 0
   startTimeBetweenSpecialKick: 0
   audioSource: {fileID: 338086481}
+  jabSound: {fileID: 8300000, guid: 210a3efad208d504b92e1d8835cf119c, type: 3}
+  knifeSound: {fileID: 8300000, guid: e264210a153a8214d95f82deb088118a, type: 3}
+  gunSound: {fileID: 8300000, guid: f017f7a5f36bdb84f9a6c5af866be2bf, type: 3}
+  punchSound: {fileID: 8300000, guid: ee685e0196efb68498684df694c7a3cf, type: 3}
+  shoryuSound: {fileID: 8300000, guid: f6ac5df0bc4130f458dfa55235224786, type: 3}
+  blockSound: {fileID: 8300000, guid: e3a3fa710f2903948b774f046e886b9f, type: 3}
 --- !u!1 &1232965680
 GameObject:
   m_ObjectHideFlags: 0
@@ -7544,6 +7550,12 @@ MonoBehaviour:
   specialKickDamage: 15
   startTimeBetweenSpecialKick: 0
   audioSource: {fileID: 338086481}
+  jabSound: {fileID: 8300000, guid: 210a3efad208d504b92e1d8835cf119c, type: 3}
+  knifeSound: {fileID: 8300000, guid: e264210a153a8214d95f82deb088118a, type: 3}
+  gunSound: {fileID: 8300000, guid: f017f7a5f36bdb84f9a6c5af866be2bf, type: 3}
+  punchSound: {fileID: 8300000, guid: ee685e0196efb68498684df694c7a3cf, type: 3}
+  shoryuSound: {fileID: 8300000, guid: f6ac5df0bc4130f458dfa55235224786, type: 3}
+  blockSound: {fileID: 8300000, guid: e3a3fa710f2903948b774f046e886b9f, type: 3}
 --- !u!1 &1847596264
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,8 +13,6 @@ public class Fireball : MonoBehaviour
     void Start()
     {
         source = GameObject.Find("soundSource").GetComponent<AudioSource>();
-        cast = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/fireballcast.ogg", typeof(AudioClip));
-        impact = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/fireballimpact.ogg", typeof(AudioClip));
         source.PlayOneShot(cast);
     }
 

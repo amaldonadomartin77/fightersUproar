@@ -79,7 +79,7 @@ public class FighterController : MonoBehaviour
     public float startTimeBetweenSpecialKick;
 
     public AudioSource audioSource;
-    private AudioClip jabSound, knifeSound, gunSound, punchSound, shoryuSound, blockSound;
+    public AudioClip jabSound, knifeSound, gunSound, punchSound, shoryuSound, blockSound;
 
     private HealthSystem healthSystem;
     private MeterSystem meterSystem;
@@ -98,13 +98,6 @@ public class FighterController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         healthSystem = transform.GetComponent<HealthSystem>();
         meterSystem = transform.GetComponent<MeterSystem>();
-
-        jabSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/punch.ogg", typeof(AudioClip));
-        knifeSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/slash.ogg", typeof(AudioClip));
-        gunSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/gunshot.ogg", typeof(AudioClip));
-        punchSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/kick.ogg", typeof(AudioClip));
-        shoryuSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/specialHit.ogg", typeof(AudioClip));
-        blockSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/block.ogg", typeof(AudioClip));
 
         hasDied = false;
     }
