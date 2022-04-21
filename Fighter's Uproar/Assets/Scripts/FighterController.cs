@@ -273,7 +273,7 @@ public class FighterController : MonoBehaviour
                             }
                             else
                             {
-                                Instantiate(fireballPrefab, launchOffset.position, Quaternion.Euler(new Vector3(0f, 180f, 0f)), target.transform);
+                                Instantiate(fireballPrefab, launchOffset.position, Quaternion.Euler(new Vector3(0, 180, 0)), target.transform);
                             }
                         }
                         else       //Ace special weak
@@ -296,7 +296,7 @@ public class FighterController : MonoBehaviour
         }
         else
         {
-            Instantiate(beamPrefab, beamOffsetFlipped.position, Quaternion.Euler(new Vector3(0f, 180f, 0f)));
+            Instantiate(beamPrefab, beamOffsetFlipped.position, Quaternion.Euler(new Vector3(0, 180, 0)));
         }
         StartCoroutine(playSound(gunSound, 0));
         Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(specialPunchPos.position, new Vector2(specialPunchRangeX, specialPunchRangeY), 0, enemyFighter);
@@ -376,8 +376,6 @@ public class FighterController : MonoBehaviour
                                 enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(specialKickDamage, startTimeBetweenSpecialKick, false);
                                 StartCoroutine(playSound(shoryuSound, 0.2f));
                             }
-                            
-
                         }
                         timeBetweenSpecialKick = startTimeBetweenSpecialKick;
                     }
@@ -386,10 +384,11 @@ public class FighterController : MonoBehaviour
                 {
                     if (timeBetweenSpecialKick <= 0)
                     {
+                        meterSystem.Spend(20);
                         GetComponent<Animator>().SetTrigger("specialStrong");
                         if (EnemyToRight())
                         {
-                            Instantiate(poisonPrefab, poisonLocation.position, Quaternion.Euler(new Vector3(0f, 180f, 0f)), target.transform);
+                            Instantiate(poisonPrefab, poisonLocation.position, Quaternion.Euler(new Vector3(0, 180, 0)), target.transform);
                         }
                         else
                         {
@@ -428,8 +427,6 @@ public class FighterController : MonoBehaviour
         Gizmos.DrawWireCube(crouchingPunchPos.position, new Vector3(crouchingPunchRangeX, crouchingPunchRangeY, 1));
         Gizmos.color = Color.white;
         Gizmos.DrawWireCube(kickPos.position, new Vector3(crouchingKickRangeX, crouchingKickRangeY, 1));
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(specialKickPos.position, new Vector3(specialKickRangeX, specialKickRangeY, 1));
 
     }
 
