@@ -97,8 +97,10 @@ public class GameController : MonoBehaviour {
     }
     public void Continue(){
 
-         Time.timeScale = 1;
-         pauseUI.SetActive(false);
+        movementAllowed = true;
+
+        Time.timeScale = 1;
+        pauseUI.SetActive(false);
 
     }
 
@@ -109,7 +111,7 @@ public class GameController : MonoBehaviour {
     public void Pause(){
 
         pauseUI.SetActive(true);
-
+        movementAllowed = false;
 
         // pause time
         Time.timeScale = 0f;

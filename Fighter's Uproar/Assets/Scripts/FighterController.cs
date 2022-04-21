@@ -410,6 +410,14 @@ public class FighterController : MonoBehaviour
             specialActive = false;
     }
 
+    public void Pause(InputAction.CallbackContext ctx)
+    {
+        if (gameController.movementAllowed && ctx.performed)
+        {
+            gameController.Pause();
+        }
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
