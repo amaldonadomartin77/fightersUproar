@@ -34,9 +34,6 @@ public class GameController : MonoBehaviour {
         timer = GameObject.Find("TimeRemaining").GetComponent<Timer>();
         movementAllowed = false;
         fadeImage.GetComponent<Image>().color = new Color(0, 0, 0, 1);
-
-
-     
     }
 
 
@@ -66,7 +63,7 @@ public class GameController : MonoBehaviour {
             p1UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = bellaHead;
         }
 
-        if (Settings.s.playerOneCharacter == 0)
+        if (Settings.s.playerTwoCharacter == 0)
         {
             p2UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "BELLA";
             p2UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = bellaHead;
