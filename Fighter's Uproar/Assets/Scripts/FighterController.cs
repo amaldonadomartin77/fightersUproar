@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEditor;
 
 public class FighterController : MonoBehaviour
 {
@@ -76,7 +77,7 @@ public class FighterController : MonoBehaviour
     public float startTimeBetweenSpecialKick;
 
     public AudioSource audioSource;
-    public AudioClip footstepSound, punchSound, kickSound, specialHitSound;
+    private AudioClip jabSound, knifeSound, gunSound, punchSound, shoryuSound, blockSound;
 
     private HealthSystem healthSystem;
     private MeterSystem meterSystem;
@@ -95,6 +96,14 @@ public class FighterController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         healthSystem = transform.GetComponent<HealthSystem>();
         meterSystem = transform.GetComponent<MeterSystem>();
+
+        jabSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/punch.ogg", typeof(AudioClip));
+        knifeSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/slash.ogg", typeof(AudioClip));
+        gunSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/gunshot.ogg", typeof(AudioClip));
+        punchSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/kick.ogg", typeof(AudioClip));
+        shoryuSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/specialHit.ogg", typeof(AudioClip));
+        blockSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/Gameplay/block.ogg", typeof(AudioClip));
+
         hasDied = false;
     }
 
@@ -223,7 +232,7 @@ public class FighterController : MonoBehaviour
                         for (int i = 0; i < enemiesToDamage.Length; i++)
                         {
                             enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(punchDamage, startTimeBetweenPunch, isCrouching);
-                            StartCoroutine(playPunchSound());
+                            StartCoroutine(playSound(jabSound, 0.2f));
                         }
                         timeBetweenPunch = startTimeBetweenPunch;
                     }
@@ -238,7 +247,7 @@ public class FighterController : MonoBehaviour
                         for (int i = 0; i < enemiesToDamage.Length; i++)
                         {
                             enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(crouchingPunchDamage, startTimeBetweenCrouchingPunch, isCrouching);
-                            StartCoroutine(playPunchSound());
+                            StartCoroutine(playSound(jabSound, 0.2f));
                         }
                         timeBetweenCrouchingPunch = startTimeBetweenCrouchingPunch;
                     }
@@ -268,7 +277,6 @@ public class FighterController : MonoBehaviour
                         else       //Ace special weak
                         {
                             StartCoroutine(Beam());
-
                         }
                     }
                     timeBetweenSpecialPunch = startTimeBetweenSpecialPunch;
@@ -288,6 +296,7 @@ public class FighterController : MonoBehaviour
         {
             Instantiate(beamPrefab, beamOffset.position, Quaternion.Euler(new Vector3(0, 180, 0)));
         }
+        StartCoroutine(playSound(gunSound, 0));
         Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(specialPunchPos.position, new Vector2(specialPunchRangeX, specialPunchRangeY), 0, enemyFighter);
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
@@ -311,7 +320,10 @@ public class FighterController : MonoBehaviour
                         for (int i = 0; i < enemiesToDamage.Length; i++)
                         {
                             enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(kickDamage, startTimeBetweenKick, isCrouching);
-                            StartCoroutine(playKickSound());
+                            if (gameObject.tag == "Bella")
+                                StartCoroutine(playSound(punchSound, 0.2f));
+                            else 
+                                StartCoroutine(playSound(knifeSound, 0.2f));
                         }
                         timeBetweenKick = startTimeBetweenKick;
                     }
@@ -326,7 +338,10 @@ public class FighterController : MonoBehaviour
                         for (int i = 0; i < enemiesToDamage.Length; i++)
                         {
                             enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(crouchingKickDamage, startTimeBetweenCrouchingKick, isCrouching);
-                            StartCoroutine(playKickSound());
+                            if (gameObject.tag == "Bella")
+                                StartCoroutine(playSound(punchSound, 0.2f));
+                            else
+                                StartCoroutine(playSound(knifeSound, 0.2f));
                         }
                         timeBetweenCrouchingKick = startTimeBetweenCrouchingKick;
                     }
@@ -357,7 +372,7 @@ public class FighterController : MonoBehaviour
                             for (int i = 0; i < enemiesToDamage.Length; i++)
                             {
                                 enemiesToDamage[i].GetComponent<FighterController>().TakeDamage(specialKickDamage, startTimeBetweenSpecialKick, false);
-                                StartCoroutine(playKickSound());
+                                StartCoroutine(playSound(shoryuSound, 0.2f));
                             }
                         }
                         timeBetweenSpecialKick = startTimeBetweenSpecialKick;
@@ -407,7 +422,7 @@ public class FighterController : MonoBehaviour
     public void TakeDamage(float damage, float stunValue, bool crouching)
     {
         if (((EnemyToRight() && movingNeg) || (!EnemyToRight() && movingPos)) && ((isCrouching && crouching) || (!isCrouching && !crouching)))
-            Block(0, stunValue);
+            Block(damage / 10, stunValue);
         else
         {
             GetComponent<Animator>().SetTrigger("Hit");
@@ -422,12 +437,13 @@ public class FighterController : MonoBehaviour
         healthSystem.Damage(damage);
     }
 
-    private void Block(int damage, float stunValue)
+    private void Block(float damage, float stunValue)
     {
         //GetComponent<Animator>().SetTrigger("Block");
         Knockback(damage * 0.5f);
         healthSystem.Damage(damage);
         stunTime = stunValue - 0.2f;
+        StartCoroutine(playSound(blockSound, 0.2f));
     }
 
     private void Knockback(float strength)
@@ -478,21 +494,9 @@ public class FighterController : MonoBehaviour
         }
     }
 
-    IEnumerator playPunchSound()
+    IEnumerator playSound(AudioClip clip, float delay)
     {
-        yield return new WaitForSeconds(0.2f);
-        audioSource.PlayOneShot(punchSound);
-    }
-
-    IEnumerator playKickSound()
-    {
-        yield return new WaitForSeconds(0.2f);
-        audioSource.PlayOneShot(kickSound);
-    }
-
-    IEnumerator playSpecialHitSound()
-    {
-        yield return new WaitForSeconds(0.2f);
-        audioSource.PlayOneShot(specialHitSound);
+        yield return new WaitForSeconds(delay);
+        audioSource.PlayOneShot(clip);
     }
 }
