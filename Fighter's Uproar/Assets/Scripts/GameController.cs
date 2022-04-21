@@ -54,27 +54,12 @@ public class GameController : MonoBehaviour {
                 break;
         }
 
-        if (Settings.s.playerOneCharacter == 0)
-        {
             p1UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "ACE";
             p1UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = aceHead;
-        }
-        else
-        {
-            p1UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "BELLA";
-            p1UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = bellaHead;
-        }
 
-        if (Settings.s.playerTwoCharacter == 0)
-        {
-            p2UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "ACE";
-            p2UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = aceHead;
-        }
-        else
-        {
+
             p2UI.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "BELLA";
             p2UI.transform.Find("Portrait/Face").GetComponent<Image>().sprite = bellaHead;
-        }
 
         BeginRound();
     }
