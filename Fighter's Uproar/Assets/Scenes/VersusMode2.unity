@@ -4933,10 +4933,6 @@ MonoBehaviour:
   specialKickDamage: 0
   startTimeBetweenSpecialKick: 0
   audioSource: {fileID: 338086481}
-  footstepSound: {fileID: 0}
-  punchSound: {fileID: 8300000, guid: 210a3efad208d504b92e1d8835cf119c, type: 3}
-  kickSound: {fileID: 8300000, guid: ee685e0196efb68498684df694c7a3cf, type: 3}
-  specialHitSound: {fileID: 8300000, guid: f6ac5df0bc4130f458dfa55235224786, type: 3}
 --- !u!1 &1232965680
 GameObject:
   m_ObjectHideFlags: 0
@@ -5936,7 +5932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1492933174
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7593,10 +7589,6 @@ MonoBehaviour:
   specialKickDamage: 15
   startTimeBetweenSpecialKick: 0
   audioSource: {fileID: 338086481}
-  footstepSound: {fileID: 0}
-  punchSound: {fileID: 8300000, guid: 210a3efad208d504b92e1d8835cf119c, type: 3}
-  kickSound: {fileID: 8300000, guid: ee685e0196efb68498684df694c7a3cf, type: 3}
-  specialHitSound: {fileID: 8300000, guid: f6ac5df0bc4130f458dfa55235224786, type: 3}
 --- !u!1 &1847596264
 GameObject:
   m_ObjectHideFlags: 0
