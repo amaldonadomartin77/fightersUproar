@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour {
     public bool movementAllowed;
     public GameObject stage1;
     public GameObject stage2;
+    public GameObject pauseUI;
+    
 
     private int maxWins;
     private GameObject p1UI, p2UI, uiText, fadeImage;
@@ -76,16 +78,48 @@ public class GameController : MonoBehaviour {
 
         BeginRound();
     }
-    public void ESCButton()
-    {
-        StartCoroutine(LoadCharSelect(1f));
-    }
+    // public void ESCButton()
+    // {
+    //     StartCoroutine(LoadCharSelect(1f));
+    // }
 
     private IEnumerator LoadCharSelect(float time)
     {
         // audioSource.PlayOneShot(backSound);
         yield return new WaitForSeconds(time);
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void RestartGame(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+        Time.timeScale = 1;
+    }
+    public void Continue(){
+
+         Time.timeScale = 1;
+         pauseUI.SetActive(false);
+
+    }
+
+    public void Quit(){
+        Application.Quit();
+    }
+
+    public void Pause(){
+
+        pauseUI.SetActive(true);
+
+
+        // pause time
+        Time.timeScale = 0f;
+        
+    }
+     public void backtomainBtn(){
+        Time.timeScale = 1;
+
+        StartCoroutine(LoadCharSelect(1f));
+    
     }
 
     // Update is called once per frame
