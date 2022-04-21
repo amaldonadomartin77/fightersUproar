@@ -3173,6 +3173,7 @@ MonoBehaviour:
   bellaStrong: {fileID: 21300000, guid: ae816718d16fc144285e516cd95e8d38, type: 3}
   bellaSpecial1: {fileID: 21300000, guid: 11a13e316ac0987449a5e1e7c90b6c26, type: 3}
   bellaSpecial2: {fileID: 21300000, guid: 32279bc01a7ab014a8c2a93713508670, type: 3}
+  none: {fileID: 21300000, guid: 8f5feab39686f344eb0707ecc93f358c, type: 3}
   char1Btn: {fileID: 688035282}
   char2Btn: {fileID: 1259362057}
   char3Btn: {fileID: 1416426396}
